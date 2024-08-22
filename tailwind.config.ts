@@ -79,10 +79,10 @@ export default {
       "inter": ['Inter, Arial, sans-serif']
     },
     fontSize:{
-      "sml": '15px',
-      "reg": "18px",
-      "lrg": "21px",
-      "xlg": "26px",
+      "sm": '15px',
+      "md": "18px",
+      "lg": "21px",
+      "xl": "26px",
       "2xl": "31px",
       "3xl": "37px",
       "4xl": "46px",
@@ -91,7 +91,7 @@ export default {
     fontWeight:{
       "thin": "300",
       "light": "400",
-      "regular": "500",
+      "normal": "500",
       "semibold": "600",
       "bold": "700",
       "extrabold": "800",
