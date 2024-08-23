@@ -43,6 +43,8 @@ export default function Index() {
           </a>
         </li>
       </ul>
+      <p className="text-lrg text-teal-60 font-semibold mt-12">welcome to</p>
+      <h1 className="text-4xl text-teal-30 font-extrabold leading-9">parkinson's</h1>
     </div>
   );
 }
