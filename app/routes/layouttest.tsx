@@ -17,7 +17,7 @@ export default function Layouttest() {
                       <Button variant="secondary">Click me</Button>
                       <Button variant="tertiary">Click me</Button>
                       <Button variant="tertiary" icon={true}>Click me</Button>
-                      <Button variant="tertiary" icon={true}>Click me</Button>
+                      <Button variant="text">Click me</Button>
                   </div>
               </div>
           </div>
