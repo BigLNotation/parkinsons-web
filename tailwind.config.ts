@@ -4,6 +4,8 @@ export default {
   content: ["./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}"],
   theme: {
     colors:{
+      white: "#ffffff",
+      black: "#000000",
       "gray":{
         990: "hsla(250, 10%, 99%, 1)",
         980: "hsla(250, 15%, 98%, 1)",
