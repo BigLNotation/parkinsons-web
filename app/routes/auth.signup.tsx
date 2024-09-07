@@ -4,10 +4,10 @@
 */
 
 export default function SignUp() {
-  return <div>Signup</div>;
+  return <div>SignUp</div>;
 }
 
 export const action = async () => {
-  // This function will be for submitting the signup data
+  // This function will be for submitting the SignUp data
   // to the API
 };

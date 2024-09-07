@@ -3,11 +3,11 @@
   the Auth <Outlet />
 */
 
-export default function Login() {
-  return <div>Login</div>;
+export default function LogIn() {
+  return <div>LogIn</div>;
 }
 
 export const action = async () => {
-  // This function will be for submitting the login data
+  // This function will be for submitting the LogIn data
   // to the API
 };
