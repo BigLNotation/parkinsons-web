@@ -1,12 +1,9 @@
+// This file accesses the SymptomForm component and has a list of questions and answers for each symptom
 import React, { useState } from 'react';
-import SliderQuestions from '~/components/SliderQuestions';
+import SymptomForm from '~/components/SymptomForm';
 
 const Slider: React.FC = () => {
-    const [currentSymptom, setCurrentSymptom] = useState('Depression'); // change symptom state to get different questions outlined below
-
-    const handleSliderChange = (value: number) => {
-        console.log("Slider Value:", value);
-    };
+    const [currentSymptom, setCurrentSymptom] = useState('Depression'); // change state to change symptom
 
     const symptomQuestions = {
         Tremor: [
@@ -35,7 +32,7 @@ const Slider: React.FC = () => {
                 ]
             }
         ],
-        Anxiety : [
+        Anxiety: [
             {
                 text: "How much does your ${symptom} influence your daily routine? (Severity)",
                 answers: [
@@ -87,14 +84,15 @@ const Slider: React.FC = () => {
                 ]
             }
         ]
-    }
+    };
 
     return (
         <div className="min-h-screen flex flex-col items-center justify-center bg-white">
-            <SliderQuestions symptom={currentSymptom} questions={symptomQuestions[currentSymptom]} onSliderChange={handleSliderChange}/>
+            <SymptomForm 
+                symptom={currentSymptom} 
+                questions={symptomQuestions[currentSymptom]} 
+            />
         </div>
-
-        //NOTEBOX GOES HERE
     );
 };
 
