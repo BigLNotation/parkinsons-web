@@ -1,5 +1,3 @@
-import React from "react";
-
 type NavbarProps = {
     variant: "logged-out" | "caregiver" | "patient"
 }
