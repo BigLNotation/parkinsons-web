@@ -8,6 +8,8 @@ type SidebarProps = {
 
 const variants = {
     "patient": "w-[300px] h-[calc(100vh-70px)] bg-[#E1F7F3]",
+
+    //TODO caregiver variant
     "caregiver": ""
 }
 
