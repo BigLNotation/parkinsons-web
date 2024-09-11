@@ -6,12 +6,19 @@ type NavbarProps = {
 }
 
 function dropdownHandler(){
-    alert("Lol")
+    // TODO REPLACE THIS WITH SOMETHING ELSE LOL
+    const a = document.querySelector("#PleaseDeleteThisInTheFinal");
+    if(a){
+        a.classList.add("animate-spin-once");
+        setTimeout(() => {
+            a.classList.remove('animate-spin-once');
+        }, 1500);
+    }
 }
 
 function UserDropdown({user}: NavbarProps) {
     return (
-        <button className="h-[70px] bg-teal-200 rounded-l-2xl right-0 transition duration-300 hover:bg-teal-300 hover:cursor-pointer text-left"
+        <button id="PleaseDeleteThisInTheFinal" className="h-[70px] bg-teal-200 rounded-l-2xl right-0 transition duration-300 hover:bg-teal-300 hover:cursor-pointer text-left"
                 onClick={dropdownHandler}>
             <div className="h-full flex justify-between items-center px-8 py-2 gap-8">
                 <div className="flex gap-4 justify-between items-center gap-4">
