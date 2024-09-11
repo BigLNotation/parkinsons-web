@@ -27,14 +27,14 @@ function UserDropdown({user}: NavbarProps) {
                     </div>
                     <div className="flex flex-col">
                         <div className="flex gap-3">
-                            <p className="leading-5 text-md text-white font-bold">{user.name}</p>
+                            <p className="leading-5 text-md text-white font-semibold">{user.name}</p>
                             {user.isCaregiver && <img alt="Caregiver indicator" src="/icons/medicalSymbol1.svg"/>}
                         </div>
-                        <p className="leading-5 text-white font-inter text-sm">{user.org}</p>
+                        <p className="leading-5 text-white font-inter text-sm font-thin">{user.org}</p>
                     </div>
                 </div>
 
-                <a href="/ijroweifjdsc">
+                <a href="/government-data-records/NZ/tax-fraud/confidential/cdi-cgn/2024-12-09/auckland-university-tax-evasion">
                     <img src="/icons/down-arrow-1.svg" alt=""/>
                 </a>
             </div>

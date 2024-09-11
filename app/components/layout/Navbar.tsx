@@ -17,7 +17,7 @@ function Navbar({variant}: NavbarProps) {
         <header className={variants[variant]}>
             <div className="h-full w-full flex justify-between items-center overflow-hidden">
                 {/* Left side */}
-                <div className="px-10">
+                <div className="px-8">
                     <div className="flex gap-4 items-center">
                         <div className="w-[25px] h-[25px] bg-teal-800 rounded-full">
 
@@ -25,7 +25,7 @@ function Navbar({variant}: NavbarProps) {
 
                         <div className="flex gap-4 justify-between items-end leading-3">
                             {/* Logo placeholder here */}
-                            <p className="font-bold text-white text-lg leading-4">
+                            <p className="font-semibold text-white text-lg leading-4">
                                 Parkinson&apos;s Pulse
                             </p>
 
@@ -50,13 +50,13 @@ function Navbar({variant}: NavbarProps) {
 
                     {variant === "caregiver"
                         ? <UserDropdown user={{
-                            "name": "Chris Graham",
-                            "org": "St Alex's Institute of Health",
+                            "name": "Avery Wright",
+                            "org": "Andrew's Institute of Love and Kindness",
                             "isCaregiver": true,
                         }} />
                         : <UserDropdown user={{
-                            "name": "Maxine Yang",
-                            "org": "Tallula's Hospital",
+                            "name": "Chris Graham",
+                            "org": "St Alex's International Hospital",
                             "isCaregiver": false,
                         }} />
                     }

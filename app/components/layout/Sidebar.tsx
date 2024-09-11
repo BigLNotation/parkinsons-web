@@ -1,6 +1,7 @@
 import React from "react";
 
 import SidebarButton from "~/components/ui/SidebarButton"
+import Button from "~/components/ui/Button"
 
 type SidebarProps = {
     variant: "patient" | "caregiver"
@@ -18,7 +19,7 @@ function Sidebar({variant}: SidebarProps) {
         <div className={variants[variant]}>
             <div className="flex flex-col h-full px-4 py-6 justify-between items-center">
                 {/*Top section*/}
-                <div className="w-full flex flex-col gap-8 items-center">
+                <div className="w-full flex flex-col gap-6 items-center">
                     <div className="w-full flex flex-col gap-2">
                         <SidebarButton icon="/icons/sidebarDashboard.svg" to="/dashboard/" end>Dashboard</SidebarButton>
                         <SidebarButton icon="/icons/sidebarSymptoms.svg" to="/dashboard/symptoms">Symptoms</SidebarButton>
@@ -29,14 +30,14 @@ function Sidebar({variant}: SidebarProps) {
 
                     </div>
                     <div className="w-full px-4">
-                        <ul className="flex flex-col gap-3 w-full font-bold text-md text-gray-300">
-                            <a href="/">
+                        <ul className="flex flex-col gap-4 w-full font-semibold text-md text-gray-300 leading-none">
+                            <a href="/" className="hover:text-purple-400 transition duration-200">
                                 Accessibility
                             </a>
-                            <a href="/">
+                            <a href="/" className="hover:text-purple-400 transition duration-200">
                                 Contact us
                             </a>
-                            <a href="/">
+                            <a href="/" className="hover:text-purple-400 transition duration-200">
                                 About
                             </a>
                         </ul>
@@ -44,11 +45,19 @@ function Sidebar({variant}: SidebarProps) {
                     <div className="h-[2px] bg-teal-750 w-[238px] rounded-full">
 
                     </div>
+                    <div className="w-full px-4">
+                        <p className="text-gray-400 text-[14px]">
+                            If symptoms are suddenly severe, seek medical advice immediately.
+                        </p>
+                    </div>
                 </div>
 
                 {/*Lower section (e.g. help)*/}
                 <div>
-                    Help me please
+                    <Button variant="secondary">
+                        <p className="font-semibold leading-5">Got a question?</p>
+                        <p className="font-light leading-5">Visit the help center  →</p>
+                    </Button>
                 </div>
             </div>
         </div>
