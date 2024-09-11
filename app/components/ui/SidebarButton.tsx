@@ -1,27 +1,29 @@
 import React from "react";
+import { NavLink } from "@remix-run/react";
+import {RemixNavLinkProps} from "@remix-run/react/dist/components";
 
-type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
-    variant: "primary" | "secondary" | "tertiary" | "text",
-    icon?: boolean,
+type ButtonProps = RemixNavLinkProps & {
+    children: string,
+    icon?: string,
 }
 
-const variants = {
-    primary: 'px-8 py-3 bg-purple-400 justify-center items-center rounded-2xl inline-flex font-sans font-bold text-white gap-2.5 leading-none hover:bg-purple-300 transition duration-200',
-    secondary: 'px-8 py-3 bg-purple-900 justify-center items-center rounded-2xl inline-flex font-sans font-bold text-purple-400 gap-2.5 leading-none hover:bg-purple-800 transition duration-200',
-    tertiary: 'px-8 py-3 border-[2px] border-purple-850 justify-center items-center rounded-2xl inline-flex font-sans font-bold text-purple-400 gap-2.5 leading-none hover:bg-purple-900 transition duration-200',
-    text: 'px-8 py-3 justify-center items-center rounded-2xl inline-flex font-sans font-bold text-purple-400 gap-2.5 leading-none hover:bg-purple-900 transition duration-200'
-}
+export default function SidebarButton({icon, children, ...other}: ButtonProps){
 
-export default function Button({variant, children, icon, ...other}: ButtonProps){
     return (
-        <button className={variants[variant]} {...other}>
+        <NavLink className={({ isActive  }) =>
+                     isActive
+                         ? "w-full px-6 py-3 bg-teal-850 flex gap-3 items-center rounded-2xl border-2 border-teal-750"
+                         : "w-full px-6 py-3 bg-teal-990 flex gap-3 items-center rounded-2xl border-2 border-teal-750 transition duration-200 hover:bg-teal-950"
+                 }
+                {...other}>
+
             {icon && /* Placeholder icon TODO actual icons */ (
-                <div className="w-[22px] h-[17px] flex-col justify-center items-center inline-flex bg-teal-500"></div>
+                <div className="w-[20px] h-[20px] flex-col justify-center items-center inline-flex bg-gray-700"></div>
             )}
 
-            <span>
+            <span className="text-md text-gray-300 font-bold">
                 {children}
             </span>
-        </button>
+        </NavLink>
     )
 }

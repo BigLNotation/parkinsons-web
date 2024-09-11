@@ -7,7 +7,7 @@ type NavbarProps = {
 }
 
 const variants = {
-    "patient": "h-[70px] w-screen fixed top-0 bg-teal-100 border-b-2 border-teal-500",
+    "patient": "h-[70px] w-screen sticky top-0 bg-teal-100 border-b-2 border-teal-500",
     "caregiver": "",
     "logged-out": ""
 }
