@@ -1,6 +1,6 @@
 // This file accesses the SymptomForm component and has a list of questions and answers for each symptom
 import React, { useState } from 'react';
-import SymptomForm from '~/components/SymptomForm';
+import SymptomForm from '~/components/symptomform/SymptomForm';
 
 const Slider: React.FC = () => {
     const [currentSymptom, setCurrentSymptom] = useState('Depression'); // change state to change symptom
