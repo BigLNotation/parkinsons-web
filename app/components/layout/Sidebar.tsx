@@ -18,10 +18,10 @@ function Sidebar({variant}: SidebarProps) {
                 {/*Top section*/}
                 <div className="w-full flex flex-col gap-8 items-center">
                     <div className="w-full flex flex-col gap-2">
-                        <SidebarButton icon="x" to="/dashboard/" end>Dashboard</SidebarButton>
-                        <SidebarButton icon="x" to="/dashboard/symptoms">Symptoms</SidebarButton>
-                        <SidebarButton icon="x" to="/dashboard/progress">Progress</SidebarButton>
-                        <SidebarButton icon="x" to="/dashboard/history">History</SidebarButton>
+                        <SidebarButton icon="/icons/sidebarDashboard.svg" to="/dashboard/" end>Dashboard</SidebarButton>
+                        <SidebarButton icon="/icons/sidebarSymptoms.svg" to="/dashboard/symptoms">Symptoms</SidebarButton>
+                        <SidebarButton icon="/icons/sidebarProgress.svg" to="/dashboard/progress">Progress</SidebarButton>
+                        <SidebarButton icon="/icons/sidebarHistory.svg" to="/dashboard/history">History</SidebarButton>
                     </div>
                     <div className="h-[2px] bg-teal-750 w-[238px] rounded-full">
 
