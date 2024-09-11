@@ -1,0 +1,57 @@
+/*This is the CSS styling for the RangeSlider prop. Feel free to edit/move around.*/
+.container {
+    background-color: hsla(250, 15%, 95%, 1);
+    padding: 2.5rem;
+    border-radius: 0.5rem; 
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+}
+
+.sliderContainer {
+    position: relative;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 15px;
+    border: 1px solid;
+    border-radius: 16px;
+    cursor: pointer;
+    background: var(--slider-background);
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 45px;
+    background-color: var(--thumb-background); /* sets the colour of the thumb to the most recent color of the background gradient*/
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 15px;
+    height: 45px;
+    background-color: var(--thumb-background);
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/*I'm not a fan of the way the ticks look, still figuring it out*/
+
+/*.tick {
+    width: 10px;
+    height: 30px;
+    background-color: gray;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.tick-style{
+    width: 10px;
+    height: 35px;
+}*/
