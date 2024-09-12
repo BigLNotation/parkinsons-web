@@ -15,8 +15,8 @@ type SymptomCardProps = {
 }
 
 const variants = {
-    normal: "bg-gray-950 py-6 px-8 rounded-2xl",
-    highlighted: "bg-gray-950 py-6 px-8 rounded-2xl border-2 border-teal-750"
+    normal: "bg-gray-950 py-6 px-8 rounded-2xl hover:bg-purple-950 transition duration-200",
+    highlighted: "bg-gray-950 py-6 px-8 rounded-2xl border-2 border-teal-750 hover:bg-purple-950 transition duration-200"
 }
 
 const statusVariants = {
@@ -26,7 +26,7 @@ const statusVariants = {
 
 function SymptomCard({symptom, desc, status, recentlyCompleted, link}: SymptomCardProps) {
     return(
-        <div className={recentlyCompleted ? variants["highlighted"] : variants["normal"]}>
+        <a className={recentlyCompleted ? variants["highlighted"] : variants["normal"]} href={link}>
             <div className="flex gap-8 items-center justify-between ">
 
                 {/*TODO Put icons here*/}
@@ -44,7 +44,7 @@ function SymptomCard({symptom, desc, status, recentlyCompleted, link}: SymptomCa
                     </div>
                 </div>
             </div>
-        </div>
+        </a>
     )
 }
 
