@@ -3,7 +3,7 @@ import React from "react";
 type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
     variant: "primary" | "secondary" | "tertiary" | "text",
     icon?: boolean,
-    as?: "string",
+    as?: string,
 }
 
 const variants = {
