@@ -3,13 +3,12 @@ import React from "react";
 import UserDropdown from "./UserDropdown";
 
 type NavbarProps = {
-    variant: "logged-out" | "caregiver" | "patient"
+    variant: "patient" | "caregiver"
 }
 
 const variants = {
     "patient": "h-[70px] w-screen sticky top-0 bg-teal-100 border-b-2 border-teal-500",
     "caregiver": "h-[70px] w-screen sticky top-0 bg-teal-100 border-b-2 border-teal-500",
-    "logged-out": ""
 }
 
 function Navbar({variant}: NavbarProps) {
@@ -40,28 +39,27 @@ function Navbar({variant}: NavbarProps) {
 
 
                 {/* Right side */}
+
                 <div>
-
                     {/*
-                    TODO make this functional based on the user lol
-                    Right now it's just creating and passing a fake placeholder user object depending
-                    on the navbar variant for demo reasons.
-                    */}
-
+                            TODO make this functional based on the user lol
+                            Right now it's just creating and passing a fake placeholder user object depending
+                            on the navbar variant for demo reasons.
+                        */}
                     {variant === "caregiver"
                         ? <UserDropdown user={{
                             "name": "Avery Wright",
                             "org": "Andrew's Institute of Love and Kindness",
                             "isCaregiver": true,
-                        }} />
+                        }}/>
                         : <UserDropdown user={{
                             "name": "Chris Graham",
                             "org": "St Alex's International Hospital",
                             "isCaregiver": false,
-                        }} />
+                        }}/>
                     }
-
                 </div>
+
             </div>
         </header>
     )

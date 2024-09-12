@@ -10,8 +10,8 @@ type SidebarProps = {
 const variants = {
     "patient": "w-[300px] h-[calc(100vh-70px)] bg-[#E1F7F3]",
 
-    //TODO caregiver variant
-    "caregiver": ""
+    //TODO finish caregiver variant
+    "caregiver": "w-[300px] h-[calc(100vh-70px)] bg-[#E1F7F3]",
 }
 
 function Sidebar({variant}: SidebarProps) {
@@ -22,8 +22,15 @@ function Sidebar({variant}: SidebarProps) {
                 <div className="w-full flex flex-col gap-6 items-center">
                     <div className="w-full flex flex-col gap-2">
                         <SidebarButton icon="/icons/sidebarDashboard.svg" to="/dashboard/" end>Dashboard</SidebarButton>
-                        <SidebarButton icon="/icons/sidebarSymptoms.svg" to="/dashboard/symptoms">Symptoms</SidebarButton>
-                        <SidebarButton icon="/icons/sidebarProgress.svg" to="/dashboard/progress">Progress</SidebarButton>
+
+                        {/* Hide some tabs for caregivers */}
+                        {variant === "patient" &&
+                            <SidebarButton icon="/icons/sidebarSymptoms.svg" to="/dashboard/symptoms">Symptoms</SidebarButton>
+                        }
+                        {variant === "patient" &&
+                            <SidebarButton icon="/icons/sidebarProgress.svg" to="/dashboard/progress">Progress</SidebarButton>
+                        }
+
                         <SidebarButton icon="/icons/sidebarHistory.svg" to="/dashboard/history">History</SidebarButton>
                     </div>
                     <div className="h-[2px] bg-teal-750 w-[238px] rounded-full">
@@ -46,9 +53,14 @@ function Sidebar({variant}: SidebarProps) {
 
                     </div>
                     <div className="w-full px-4">
-                        <p className="text-gray-400 text-[14px]">
-                            If symptoms are suddenly severe, seek medical advice immediately.
-                        </p>
+                        {variant === "patient"
+                            ? <p className="text-gray-400 text-[14px]">
+                                If symptoms are suddenly severe, seek medical advice immediately.
+                            </p>
+                            : <p className="text-red-500 text-[14px]">
+                                You&apos;re signed in to Caregiver mode, for healthcare staff, caregivers, or other individuals.
+                            </p>
+                        }
                     </div>
                 </div>
 
