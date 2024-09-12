@@ -4,13 +4,13 @@ import Navbar from '~/components/layout/Navbar'
 import Sidebar from '~/components/layout/Sidebar'
 
 
-export default function Dashboard() {
+export default function TestCaregivers() {
   return (
       <main className="flex flex-col">
-          <Navbar variant={"patient"}/>
+          <Navbar variant={"caregiver"}/>
 
           <div className="flex flex-wrap">
-              <Sidebar variant={"patient"}/>
+              <Sidebar variant={"caregiver"}/>
 
               <Outlet/>
           </div>
