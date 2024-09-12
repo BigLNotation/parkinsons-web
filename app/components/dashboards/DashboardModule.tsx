@@ -6,7 +6,7 @@ import React from "react";
 
 type DashboardProps = {
     variant: "normal" | "accent",
-    children: string,
+    children: string | React.ReactNode,
 }
 
 const variants = {
