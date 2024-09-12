@@ -8,10 +8,10 @@ type SidebarProps = {
 }
 
 const variants = {
-    "patient": "w-[300px] h-[calc(100vh-70px)] bg-[#E1F7F3]",
+    "patient": "w-[300px] h-[calc(100vh-70px)] bg-[#E1F7F3] sticky top-[70px] left-0",
 
     //TODO finish caregiver variant
-    "caregiver": "w-[300px] h-[calc(100vh-70px)] bg-[#E1F7F3]",
+    "caregiver": "w-[300px] h-[calc(100vh-70px)] bg-[#E1F7F3] sticky top-[70px] left-0",
 }
 
 function Sidebar({variant}: SidebarProps) {
