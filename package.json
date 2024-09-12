@@ -11,13 +11,19 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@cloudflare/workers-types": "^4.20240909.0",
+    "@remix-run/cloudflare": "^2.12.0",
+    "@remix-run/cloudflare-pages": "^2.12.0",
     "@remix-run/node": "^2.10.3",
     "@remix-run/react": "^2.10.3",
     "@remix-run/serve": "^2.10.3",
+    "crypto": "^1.0.1",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tinygradient": "^1.1.5"
+    "stream": "^0.0.3",
+    "tinygradient": "^1.1.5",
+    "wrangler": "^3.76.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.10.3",
