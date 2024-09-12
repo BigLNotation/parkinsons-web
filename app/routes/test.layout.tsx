@@ -2,7 +2,7 @@ import Button from "~/components/ui/Button";
 import Sidebar from "~/components/layout/Sidebar";
 import Navbar from "~/components/layout/Navbar";
 
-export default function Layouttest() {
+export default function TestLayout() {
   return (
       <main className="flex flex-col">
           <Navbar variant={"patient"}/>

@@ -98,7 +98,11 @@ export default {
       "bold": "700",
       "extrabold": "800",
     },
-    extend: {},
+    extend: {
+      animation: {
+        'spin-once': 'spin 1.5s ease-in-out 1'
+      }
+    },
   },
   plugins: [],
 } satisfies Config;
