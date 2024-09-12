@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Navbar from '~/components/layout/Navbar';
+import NavbarLoggedOut from '~/components/layout/NavbarLoggedOut';
 
 const NameInfo = ({
   firstName,
@@ -17,54 +18,57 @@ const NameInfo = ({
   const [error, setError] = useState<string | undefined>();
 
   return (
-    <div className="flex flex-col gap-2 p-8 rounded-xl bg-gray-950">
-      <form
-        action={undefined}
-        onSubmit={() => {}}
-      >
-        <div className="flex flex-col gap-2">
-          <label htmlFor="first-name">First Name</label>
-          <input
-            name="first-name"
-            value={firstName}
-            onChange={(event) => setFirstName(event.target.value)}
-          ></input>
-        </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="last-name">Last Name</label>
-          <input
-            name="last-name"
-            value={lastName}
-            onChange={(event) => setLastName(event.target.value)}
-          ></input>
-        </div>
-        <p className="text-red-800">{error}</p>
-        <button
-          type="submit"
-          onClick={(event) => {
-            event.preventDefault();
-            if (firstName.length < 4) {
-              setError('First name must be longer than three characters');
-              return;
-            }
-            if (firstName.length >= 40) {
-              setError('First name must be less than forty characters');
-              return;
-            }
-            if (lastName.length < 4) {
-              setError('Last name must be longer than three characters');
-              return;
-            }
-            if (lastName.length >= 40) {
-              setError('Last name must be less than forty characters');
-              return;
-            }
-            nextStep();
-          }}
+    <div className="flex flex-col p-6">
+      <div className="flex flex-col gap-2 p-12 rounded-xl bg-gray-950">
+        <form
+          action={undefined}
+          onSubmit={() => {}}
+          className="flex flex-col gap-4"
         >
-          Next
-        </button>
-      </form>
+          <div className="flex flex-col gap-2 lg:w-[380px] w-full">
+            <label
+              className="font-semibold text-gray-300 text-md"
+              htmlFor="first-name"
+            >
+              First Name
+            </label>
+            <input
+              name="first-name"
+              className="p-2 rounded-xl border-solid border-2 border-gray-500"
+              value={firstName}
+              onChange={(event) => setFirstName(event.target.value)}
+            ></input>
+          </div>
+          <div className="flex flex-col gap-2">
+            <label
+              className="font-semibold text-gray-300 text-md"
+              htmlFor="last-name"
+            >
+              Last Name
+            </label>
+            <input
+              name="last-name"
+              className="p-2 rounded-xl border-solid border-2 border-gray-500"
+              value={lastName}
+              onChange={(event) => setLastName(event.target.value)}
+            ></input>
+          </div>
+          <p className="text-red-600 font-semibold h-12">{error}</p>
+          <div className="w-full flex flex-row justify-end ">
+            <button
+              type="submit"
+              className="bg-purple-400 rounded-lg px-4 py-2 font-semibold text-white"
+              onClick={(event) => {
+                event.preventDefault();
+
+                nextStep();
+              }}
+            >
+              Next
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
@@ -89,52 +93,76 @@ const EmailAndPassword = ({
   const [error, setError] = useState<string | undefined>();
 
   return (
-    <div className="flex flex-col gap-2 p-8 rounded-xl bg-gray-950">
-      <form
-        action={undefined}
-        onSubmit={() => {}}
-      >
-        <div className="flex flex-col gap-2">
-          <label htmlFor="email-address">Email Address</label>
-          <input
-            name="email-address"
-            value={emailAddress}
-            onChange={(event) => setEmailAddress(event.target.value)}
-          ></input>
-        </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="password">Password</label>
-          <input
-            name="password"
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          ></input>
-        </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="confirm-password">Confirm Password</label>
-          <input
-            name="confirm-password"
-            type="password"
-            value={confirmPassword}
-            onChange={(event) => setConfirmPassword(event.target.value)}
-          ></input>
-        </div>
-        <p className="text-red-800">{error}</p>
-        <button
-          type="submit"
-          onClick={(event) => {
-            event.preventDefault();
-            if (password != confirmPassword) {
-              setError('Passwords do not match');
-              return;
-            }
-            nextStep();
-          }}
+    <div className="flex flex-col p-6">
+      <div className="flex flex-col gap-2 p-12 rounded-xl bg-gray-950">
+        <form
+          action={undefined}
+          onSubmit={() => {}}
+          className="flex flex-col gap-4"
         >
-          Next
-        </button>
-      </form>
+          <div className="flex flex-col gap-2 lg:w-[380px] w-full">
+            <label
+              className="font-semibold text-gray-300 text-md"
+              htmlFor="email-address"
+            >
+              Email Address
+            </label>
+            <input
+              name="email-address"
+              className="p-2 rounded-xl border-solid border-2 border-gray-500"
+              value={emailAddress}
+              onChange={(event) => setEmailAddress(event.target.value)}
+            ></input>
+          </div>
+          <div className="flex flex-col gap-2">
+            <label
+              className="font-semibold text-gray-300 text-md"
+              htmlFor="password"
+            >
+              Password
+            </label>
+            <input
+              name="password"
+              type="password"
+              className="p-2 rounded-xl border-solid border-2 border-gray-500"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+            ></input>
+          </div>
+          <div className="flex flex-col gap-2">
+            <label
+              className="font-semibold text-gray-300 text-md"
+              htmlFor="confirm-password"
+            >
+              Confirm Password
+            </label>
+            <input
+              name="confirm-password"
+              className="p-2 rounded-xl border-solid border-2 border-gray-500"
+              type="password"
+              value={confirmPassword}
+              onChange={(event) => setConfirmPassword(event.target.value)}
+            ></input>
+          </div>
+          <p className="text-red-600 font-semibold h-12">{error}</p>
+          <div className="w-full flex flex-row justify-end ">
+            <button
+              type="submit"
+              className="bg-purple-400 rounded-lg px-4 py-2 font-semibold text-white"
+              onClick={(event) => {
+                event.preventDefault();
+                if (password != confirmPassword) {
+                  setError('Passwords do not match');
+                  return;
+                }
+                nextStep();
+              }}
+            >
+              Next
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
@@ -147,15 +175,37 @@ const RoleSelection = ({
   ) => void;
 }) => {
   return (
-    <div className="flex flex-col gap-2 bg-teal-950 w-full">
-      <h3>Which of these best describe you?</h3>
-      <div className="flex flex-row gap-4">
-        <button onClick={() => setRoleSelected('patient')}>
-          I'm living with Parkinson's
-        </button>
-        <button onClick={() => setRoleSelected('caregiver')}>
-          I'm a nurse, doctor, or caregiver
-        </button>
+    <div className="w-full lg:p-16">
+      <div className="flex flex-col gap-4 bg-teal-950 w-full p-8 rounded-xl justify-center items-center">
+        <h3 className="text-xl text-gray-400 font-semibold">
+          Which of these best describe you?
+        </h3>
+        <div className="flex flex-row gap-8">
+          <button
+            onClick={() => setRoleSelected('patient')}
+            className="rounded-xl w-[286px] h-[342px] bg-teal-850 flex flex-col gap-4 justify-center items-center font-bold text-gray-400"
+          >
+            <span className="bg-purple-600 rounded-full w-[120px] aspect-square flex flex-col justify-center items-center">
+              <img
+                width={60}
+                src="/icons/person-icon.svg"
+              />
+            </span>
+            I'm living with Parkinson's
+          </button>
+          <button
+            className="rounded-xl w-[286px] h-[342px] bg-teal-850 flex flex-col gap-4 justify-center items-center font-bold text-gray-400"
+            onClick={() => setRoleSelected('caregiver')}
+          >
+            <span className="bg-purple-600 rounded-full w-[120px] aspect-square flex flex-col justify-center items-center">
+              <img
+                width={120}
+                src="/icons/bingud.png"
+              />
+            </span>
+            I'm a nurse, doctor, or caregiver
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -180,9 +230,6 @@ export default function Auth() {
   const nextStep = async () => {
     switch (step) {
       case 'role-select': {
-        if (!roleSelected) {
-          return;
-        }
         setStep('email-and-password');
       }
       case 'email-and-password': {
@@ -205,9 +252,9 @@ export default function Auth() {
 
   return (
     <div className="">
-      <Navbar variant="logged-out" />
-      <div className="flex flex-col justify-center items-center">
-        <h2 className="font-bold text-2xl">Sign up to Parkinson's Pulse</h2>
+      <NavbarLoggedOut />
+      <div className="flex flex-col justify-center items-center pt-12">
+        <h2 className="font-bold text-xl">Sign up to Parkinson's Pulse</h2>
         {(() => {
           switch (step) {
             case 'role-select': {
