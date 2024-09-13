@@ -2,8 +2,6 @@
 the boxes for symptom selecting
  */
 
-import React from "react"
-
 import Button from "~/components/ui/Button"
 
 type SymptomCardProps = {
@@ -32,7 +30,6 @@ function SymptomCard({symptom, desc, status, recentlyCompleted, link}: SymptomCa
                 {/*TODO Put icons here*/}
                 <div className="w-[70px] h-[70px] bg-gray-500 rounded-full"></div>
 
-                {/*TODO unfix the width here lol*/}
                 <div className="w-[220px] flex flex-col gap-5">
                     <div className="flex flex-col gap-2">
                         <p className="text-md font-bold text-gray-200 leading-none">{symptom}</p>

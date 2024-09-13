@@ -24,7 +24,7 @@ export default function SidebarButton({icon, children, ...other}: SidebarButtonP
                 </div>
             )}
 
-            <span className="text-md text-gray-300 font-semibold">
+            <span className="text-md text-gray-300 font-bold">
                 {children}
             </span>
         </NavLink>

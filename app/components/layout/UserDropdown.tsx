@@ -27,10 +27,10 @@ function UserDropdown({user}: NavbarProps) {
                     </div>
                     <div className="flex flex-col">
                         <div className="flex gap-3">
-                            <p className="leading-5 text-md text-white font-semibold">{user.name}</p>
+                            <p className="leading-5 text-md text-white font-bold">{user.name}</p>
                             {user.isCaregiver && <img alt="Caregiver indicator" src="/icons/medicalSymbol1.svg"/>}
                         </div>
-                        <p className="leading-5 text-white font-inter text-sm font-thin">{user.org}</p>
+                        <p className="leading-5 text-white font-inter text-sm font-light">{user.org}</p>
                     </div>
                 </div>
 

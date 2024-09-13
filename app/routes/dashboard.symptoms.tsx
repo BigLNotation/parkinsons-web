@@ -5,6 +5,7 @@
 
 import DashboardModule from "~/components/dashboards/DashboardModule";
 import SymptomGrid from "~/components/symptoms/SymptomGrid";
+import Button from "~/components/ui/Button";
 
 export default function DashboardSymptoms() {
   return (
@@ -16,6 +17,10 @@ export default function DashboardSymptoms() {
             <SymptomGrid category="motor"/>
             <h3 className="font-bold text-gray-200 text-lg pt-6">Non-motor</h3>
             <SymptomGrid category="nonmotor"/>
+            <div className="pt-8">
+                <Button variant="tertiary" onClick={() => alert("This button is currently nonfunctional.")}>Add a new symptom</Button>
+            </div>
+
         </DashboardModule>
       </div>
   );
