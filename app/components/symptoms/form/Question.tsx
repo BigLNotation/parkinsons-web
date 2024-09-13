@@ -1,6 +1,6 @@
 // This code is the question component, which takes displays the question, answers and RangeSlider component
 import React from 'react';
-import RangeSlider from '~/components/symptomform/RangeSlider';
+import RangeSlider from '~/components/symptoms/form/RangeSlider';
 
 interface QuestionProps {
     text: string;

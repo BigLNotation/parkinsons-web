@@ -1,5 +1,3 @@
-import React from "react";
-
 import SidebarButton from "~/components/ui/SidebarButton"
 import Button from "~/components/ui/Button"
 
@@ -8,10 +6,10 @@ type SidebarProps = {
 }
 
 const variants = {
-    "patient": "w-[300px] h-[calc(100vh-70px)] bg-[#E1F7F3]",
+    "patient": "w-[300px] h-[calc(100vh-70px)] bg-[#E1F7F3] sticky top-[70px] left-0",
 
     //TODO finish caregiver variant
-    "caregiver": "w-[300px] h-[calc(100vh-70px)] bg-[#E1F7F3]",
+    "caregiver": "w-[300px] h-[calc(100vh-70px)] bg-[#E1F7F3] sticky top-[70px] left-0",
 }
 
 function Sidebar({variant}: SidebarProps) {
@@ -37,7 +35,7 @@ function Sidebar({variant}: SidebarProps) {
 
                     </div>
                     <div className="w-full px-4">
-                        <ul className="flex flex-col gap-4 w-full font-semibold text-md text-gray-300 leading-none">
+                        <ul className="flex flex-col gap-4 w-full font-bold text-md text-gray-300 leading-none">
                             <a href="/" className="hover:text-purple-400 transition duration-200">
                                 Accessibility
                             </a>
@@ -67,8 +65,8 @@ function Sidebar({variant}: SidebarProps) {
                 {/*Lower section (e.g. help)*/}
                 <div>
                     <Button variant="secondary" as="a" href="https://www.parkinsons.org.nz/">
-                        <p className="font-semibold leading-5 text-center">Got a question?</p>
-                        <p className="font-light leading-5 text-center">Visit the help center  →</p>
+                        <p className="font-bold leading-5 text-center">Got a question?</p>
+                        <p className="font-normal leading-5 text-center">Visit the help center  →</p>
                     </Button>
                 </div>
             </div>
