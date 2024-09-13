@@ -5,6 +5,7 @@
 
 import DashboardModule from "~/components/dashboards/DashboardModule";
 import Button from "~/components/ui/Button";
+import HistoryList from "~/components/history/HistoryList";
 
 export default function DashboardSymptoms() {
   return (
@@ -57,7 +58,7 @@ export default function DashboardSymptoms() {
               <DashboardModule variant="normal" isFullSize>
                   <div className="flex gap-6">
                       <h3 className="font-bold text-gray-200 text-xl">Your symptoms over time</h3>
-                      <Button variant="secondary" as="a" href="./progress">View more</Button>
+                      <Button variant="text" as="a" href="./progress">View more</Button>
                   </div>
                   <div className="py-6">
                       Insert graph here (TBD)
@@ -68,10 +69,10 @@ export default function DashboardSymptoms() {
               <DashboardModule variant="normal" isFullSize>
                   <div className="flex gap-6">
                       <h3 className="font-bold text-gray-200 text-xl">Your tracking history</h3>
-                      <Button variant="secondary" as="a" href="./history">View more</Button>
+                      <Button variant="text" as="a" href="./history">View more</Button>
                   </div>
                   <div className="py-6">
-                      Insert stuff here (TBD)
+                      <HistoryList/>
                   </div>
 
               </DashboardModule>
