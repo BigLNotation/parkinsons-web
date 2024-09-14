@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Navbar from '~/components/layout/Navbar';
 import NavbarLoggedOut from '~/components/layout/NavbarLoggedOut';
+import Button from '~/components/ui/Button';
 
 const NameInfo = ({
   firstName,
@@ -55,9 +56,8 @@ const NameInfo = ({
           </div>
           <p className="text-red-600 font-semibold h-12">{error}</p>
           <div className="w-full flex flex-row justify-end ">
-            <button
-              type="submit"
-              className="bg-purple-400 rounded-lg px-4 py-2 font-semibold text-white"
+            <Button
+              variant="primary"
               onClick={(event) => {
                 event.preventDefault();
 
@@ -65,7 +65,7 @@ const NameInfo = ({
               }}
             >
               Next
-            </button>
+            </Button>
           </div>
         </form>
       </div>
@@ -146,9 +146,8 @@ const EmailAndPassword = ({
           </div>
           <p className="text-red-600 font-semibold h-12">{error}</p>
           <div className="w-full flex flex-row justify-end ">
-            <button
-              type="submit"
-              className="bg-purple-400 rounded-lg px-4 py-2 font-semibold text-white"
+            <Button
+              variant="primary"
               onClick={(event) => {
                 event.preventDefault();
                 if (password != confirmPassword) {
@@ -159,7 +158,7 @@ const EmailAndPassword = ({
               }}
             >
               Next
-            </button>
+            </Button>
           </div>
         </form>
       </div>
