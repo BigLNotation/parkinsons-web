@@ -1,7 +1,7 @@
 // This is the symptom form component, which takes a question component and ideally will take a textbox component. Submitting this form stores all the data from the RangeSlider for each question and the TextBox.
 import React from 'react';
-import Question from '~/components/symptomform/Question';
-import TextBox from '~/components/symptomform/TextBox';
+import Question from '~/components/symptoms/form/Question';
+import TextBox from '~/components/symptoms/form/TextBox';
 
 interface SymptomFormProps {
     symptom: string;

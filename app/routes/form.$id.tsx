@@ -1,4 +1,4 @@
-import { LoaderFunction, LoaderFunctionArgs, json } from '@remix-run/node';
+import { LoaderFunction, LoaderFunctionArgs, json } from '@remix-run/cloudflare';
 
 export const loader: LoaderFunction = async ({ params }) => {
   // Fetch and return the layout and structure of the form
