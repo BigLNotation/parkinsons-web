@@ -1,4 +1,4 @@
-/* PLACEHOLDER data for the symptom cards - we'll be updating these from backend somehow I think? */
+/* PLACEHOLDER data for the symptom cards - we'c be updating these from backend somehow I think? */
 
 const symptoms = [
     {

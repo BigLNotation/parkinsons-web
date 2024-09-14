@@ -19,7 +19,7 @@ function Sidebar({variant}: SidebarProps) {
                 {/*Top section*/}
                 <div className="w-full flex flex-col gap-6 items-center">
                     <div className="w-full flex flex-col gap-2">
-                        <SidebarButton icon="/icons/sidebarDashboard.svg" to="/dashboard/" end>Dashboard</SidebarButton>
+                        <SidebarButton icon="/icons/sidebarDashboard.svg" to="/dashboard/home" end>Dashboard</SidebarButton>
 
                         {/* Hide some tabs for caregivers */}
                         {variant === "patient" &&
