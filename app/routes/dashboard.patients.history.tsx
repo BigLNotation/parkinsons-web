@@ -2,7 +2,7 @@ import DashboardModule from "~/components/dashboards/DashboardModule";
 
 import HistoryList from "~/components/history/HistoryList";
 
-export default function DashboardHistory() {
+export default function DashboardPatientsHistory() {
   return (
       <div className="py-12 px-16 flex-1 flex flex-col gap-8">
           <h1 className="font-extrabold text-gray-200 text-3xl">

@@ -7,7 +7,7 @@ import DashboardModule from "~/components/dashboards/DashboardModule";
 import SymptomGrid from "~/components/symptoms/SymptomGrid";
 import Button from "~/components/ui/Button";
 
-export default function DashboardSymptoms() {
+export default function DashboardPatientsSymptoms() {
   return (
       <div className="py-12 px-16 flex-1  flex flex-col gap-8">
         <h1 className="font-extrabold text-gray-200 text-3xl">Your symptoms</h1>
