@@ -9,9 +9,9 @@ import Button from "~/components/ui/Button";
 
 export default function DashboardSymptoms() {
   return (
-      <div className="py-12 px-16 flex-1">
+      <div className="py-12 px-16 flex-1  flex flex-col gap-8">
         <h1 className="font-extrabold text-gray-200 text-3xl">Your symptoms</h1>
-        <h2 className="font-bold text-gray-200 text-xl py-6">Track new symptoms</h2>
+        <h2 className="font-bold text-gray-200 text-xl">Track new symptoms</h2>
         <DashboardModule variant="normal">
             <h3 className="font-bold text-gray-200 text-lg">Motor</h3>
             <SymptomGrid category="motor"/>

@@ -22,7 +22,7 @@ function Navbar({variant}: NavbarProps) {
 
                         </div>
 
-                        <div className="flex gap-4 justify-between items-end leading-3">
+                        <a className="flex gap-4 justify-between items-end leading-3" href="/dashboard/home">
                             {/* Logo placeholder here */}
                             <p className="font-semibold text-white text-lg leading-4">
                                 Parkinson&apos;s Pulse
@@ -33,7 +33,7 @@ function Navbar({variant}: NavbarProps) {
                                     for Caregivers and Clinicians
                                 </p>
                             }
-                        </div>
+                        </a>
                     </div>
                 </div>
 
