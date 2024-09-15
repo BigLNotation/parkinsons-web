@@ -7,12 +7,12 @@ import DashboardModule from "~/components/dashboards/DashboardModule";
 import Button from "~/components/ui/Button";
 import HistoryList from "~/components/history/HistoryList";
 
-export default function DashboardSymptoms() {
+export default function DashboardCaregiversHome() {
   return (
       <div className="py-12 px-16 flex-1">
         <h1 className="font-extrabold text-gray-200 text-3xl">
             {/*TODO replace with account name*/}
-            Kia ora, Chris!
+            Kia ora, Avery!
         </h1>
 
           <div className="py-6 flex flex-col gap-8">

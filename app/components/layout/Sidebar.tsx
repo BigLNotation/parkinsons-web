@@ -18,19 +18,21 @@ function Sidebar({variant}: SidebarProps) {
             <div className="flex flex-col h-full px-4 py-6 justify-between items-center">
                 {/*Top section*/}
                 <div className="w-full flex flex-col gap-6 items-center">
-                    <div className="w-full flex flex-col gap-2">
-                        <SidebarButton icon="/icons/sidebarDashboard.svg" to="/dashboard/home" end>Dashboard</SidebarButton>
-
-                        {/* Hide some tabs for caregivers */}
-                        {variant === "patient" &&
-                            <SidebarButton icon="/icons/sidebarSymptoms.svg" to="/dashboard/symptoms">Symptoms</SidebarButton>
-                        }
-                        {variant === "patient" &&
-                            <SidebarButton icon="/icons/sidebarProgress.svg" to="/dashboard/progress">Progress</SidebarButton>
-                        }
-
-                        <SidebarButton icon="/icons/sidebarHistory.svg" to="/dashboard/history">History</SidebarButton>
-                    </div>
+                    {/* Hide some tabs for caregivers */}
+                    {variant === "patient" &&
+                        <div className="w-full flex flex-col gap-2">
+                            <SidebarButton icon="/icons/sidebarDashboard.svg" to="/dashboard/patients/home">Dashboard</SidebarButton>
+                            <SidebarButton icon="/icons/sidebarSymptoms.svg" to="/dashboard/patients/symptoms">Symptoms</SidebarButton>
+                            <SidebarButton icon="/icons/sidebarProgress.svg" to="/dashboard/patients/progress">Progress</SidebarButton>
+                            <SidebarButton icon="/icons/sidebarHistory.svg" to="/dashboard/patients/history">History</SidebarButton>
+                        </div>
+                    }
+                    {variant === "caregiver" &&
+                        <div className="w-full flex flex-col gap-2">
+                            <SidebarButton icon="/icons/sidebarDashboard.svg" to="/dashboard/caregivers/home">Dashboard</SidebarButton>
+                            <SidebarButton icon="/icons/sidebarHistory.svg" to="/dashboard/caregivers/history">History</SidebarButton>
+                        </div>
+                    }
                     <div className="h-[2px] bg-teal-750 w-[238px] rounded-full">
 
                     </div>
