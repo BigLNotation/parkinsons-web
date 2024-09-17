@@ -5,7 +5,9 @@ import UserDropdown from "./UserDropdown";
 
 type NavbarProps = {
     variant: "patient" | "caregiver",
-    toggleSidebar: ()=>void
+    toggleSidebar: ()=>void,
+    toggleAccessibilityModal: ()=>void,
+    isSidebarOpen: boolean
 }
 
 const variants = {
@@ -13,7 +15,7 @@ const variants = {
     "caregiver": "h-[70px] w-full sticky top-0 bg-teal-100 border-b-2 border-teal-500",
 }
 
-function Navbar({variant, toggleSidebar}: NavbarProps) {
+function Navbar({variant, isSidebarOpen, toggleSidebar, toggleAccessibilityModal}: NavbarProps) {
 
     return(
         <header className={variants[variant]}>
@@ -39,8 +41,10 @@ function Navbar({variant, toggleSidebar}: NavbarProps) {
                         </a>
                     </div>
                     <div className="flex gap-4 items-center">
-                        <NavbarButton variant="sidebar" onClick={toggleSidebar}>Sidebar</NavbarButton>
-                        <NavbarButton variant="accessibility">Accessibility</NavbarButton>
+                        {isSidebarOpen
+                        ? <NavbarButton variant="sidebarActive" onClick={toggleSidebar}>Sidebar</NavbarButton>
+                        : <NavbarButton variant="sidebar" onClick={toggleSidebar}>Sidebar</NavbarButton>}
+                        <NavbarButton variant="accessibility" onClick={toggleAccessibilityModal}>Accessibility</NavbarButton>
                     </div>
                 </div>
 

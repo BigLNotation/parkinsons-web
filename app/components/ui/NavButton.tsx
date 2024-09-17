@@ -8,8 +8,10 @@ Variants and accompanying icons are HARDCODED:
 More can be added if needed.
  */
 
+// Should sidebarActive be handled in a way that isn't attached to the variants? Probably.
+
 type NavButtonProps = React.HTMLAttributes<HTMLButtonElement> & {
-    variant: "accessibility" | "sidebar",
+    variant: "accessibility" | "sidebar" | "sidebarActive",
     children: string,
 }
 
@@ -19,6 +21,7 @@ export default function NavbarButton({variant, children, ...other}: NavButtonPro
 
             {variant === "accessibility" && <img src="/icons/navbarAccessibility.svg" alt="Accessibility menu"/>}
             {variant === "sidebar" && <img src="/icons/navbarSidebar.svg" alt="Toggle sidebar"/>}
+            {variant === "sidebarActive" && <img src="/icons/navbarSidebarActive.svg" alt="Toggle sidebar"/>}
 
             <span className="text-white font-bold">
                 {children}

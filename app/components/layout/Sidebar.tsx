@@ -38,9 +38,9 @@ function Sidebar({variant}: SidebarProps) {
                     </div>
                     <div className="w-full px-4">
                         <ul className="flex flex-col gap-4 w-full font-bold text-md text-gray-300 leading-none">
-                            <a href="/" className="hover:text-purple-400 transition duration-200">
-                                Accessibility
-                            </a>
+                            {/*<a href="/" className="hover:text-purple-400 transition duration-200">*/}
+                            {/*    Accessibility*/}
+                            {/*</a>*/}
                             <a href="/" className="hover:text-purple-400 transition duration-200">
                                 Contact us
                             </a>

@@ -7,7 +7,13 @@ import DashboardModule from "~/components/dashboards/DashboardModule";
 import Button from "~/components/ui/Button";
 import HistoryList from "~/components/history/HistoryList";
 
-export default function DashboardPatientsHome() {
+/* We are demoing several interface variants and this is the fastest way to make it work. If you hate it, I'm sorry. */
+
+type PatientsDashboardProps = {
+    variant: "sidebar" | "sidebarless"
+}
+
+export default function DashboardPatientsHome({variant}: PatientsDashboardProps) {
   return (
       <div className="py-12 px-16 flex-1">
         <h1 className="font-extrabold text-gray-200 text-3xl">
@@ -16,7 +22,7 @@ export default function DashboardPatientsHome() {
         </h1>
 
           <div className="py-6 flex flex-col gap-8">
-              <div className="flex  gap-8">
+              <div className="flex gap-8">
                   <div className="w-[450px]">
                       <DashboardModule variant="accent" isFullSize>
                           <div className="flex flex-col gap-6">
