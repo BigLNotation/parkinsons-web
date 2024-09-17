@@ -1,9 +1,11 @@
 import React from "react";
 
+import NavbarButton from "~/components/ui/NavButton";
 import UserDropdown from "./UserDropdown";
 
 type NavbarProps = {
-    variant: "patient" | "caregiver"
+    variant: "patient" | "caregiver",
+    toggleSidebar: ()=>void
 }
 
 const variants = {
@@ -11,12 +13,13 @@ const variants = {
     "caregiver": "h-[70px] w-full sticky top-0 bg-teal-100 border-b-2 border-teal-500",
 }
 
-function Navbar({variant}: NavbarProps) {
+function Navbar({variant, toggleSidebar}: NavbarProps) {
+
     return(
         <header className={variants[variant]}>
             <div className="h-full w-full flex justify-between items-center overflow-hidden">
                 {/* Left side */}
-                <div className="px-8">
+                <div className="px-8 flex gap-8 items-center">
                     <div className="flex gap-4 items-center">
                         <div className="w-[25px] h-[25px] bg-teal-800 rounded-full">
 
@@ -34,6 +37,10 @@ function Navbar({variant}: NavbarProps) {
                                 </p>
                             }
                         </a>
+                    </div>
+                    <div className="flex gap-4 items-center">
+                        <NavbarButton variant="sidebar" onClick={toggleSidebar}>Sidebar</NavbarButton>
+                        <NavbarButton variant="accessibility">Accessibility</NavbarButton>
                     </div>
                 </div>
 
