@@ -18,7 +18,7 @@ isFullSize: Make the button the full size of the parent element.
 type ButtonProps = React.HTMLAttributes<HTMLButtonElement> & React.HTMLAttributes<HTMLAnchorElement> & {
     variant: "primary" | "secondary" | "tertiary" | "text",
     isFullSize?: boolean,
-    icon?: boolean,
+    icon?: string,
     as?: "a" | "button", //Buttons can be anchor tags (hrefs) or buttons (onClicks)
     href?: string,
     children: React.ReactNode,
@@ -35,7 +35,8 @@ export default function Button({variant, children, icon, isFullSize = false, as:
     return (
         <Component className={`${variants[variant]} ${isFullSize && "w-full h-full"}`} {...other}>
             {icon && /* Placeholder icon TODO actual icons */ (
-                <div className="w-[22px] h-[17px] flex-col justify-center items-center inline-flex bg-teal-500"></div>
+                // <div className="w-[22px] h-[17px] flex-col justify-center items-center inline-flex bg-teal-500"></div>
+                <img src={icon} alt=""/>
             )}
 
             <span>

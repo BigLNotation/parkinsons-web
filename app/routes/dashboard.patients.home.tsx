@@ -6,6 +6,8 @@
 import DashboardModule from "~/components/dashboards/DashboardModule";
 import Button from "~/components/ui/Button";
 import HistoryList from "~/components/history/HistoryList";
+import MoodForm from "~/components/dashboards/MoodForm";
+import QuickAccess from "~/components/dashboards/QuickAccess";
 
 /* We are demoing several interface variants and this is the fastest way to make it work. If you hate it, I'm sorry. */
 
@@ -24,37 +26,16 @@ export default function DashboardPatientsHome({variant}: PatientsDashboardProps)
           <div className="py-6 flex flex-col gap-8">
               <div className="flex gap-8">
                   <div className="w-[450px]">
-                      <DashboardModule variant="accent" isFullSize>
-                          <div className="flex flex-col gap-6">
-                              <h3 className="font-bold text-gray-200 text-xl">Quick access</h3>
-                              <div className="flex flex-col gap-3">
-                                  <div className="w-full h-[72px]">
-                                      <Button variant="primary" isFullSize as="a" href="./symptoms">
-                                          <span className="text-lg">Track your symptoms ➜</span>
-                                      </Button>
-                                  </div>
-                                  <div className="w-full h-[60px]">
-                                      <Button variant="secondary" isFullSize as="a" href="./progress">
-                                          <span className="text-md">See your progress</span>
-                                      </Button>
-                                  </div>
-                                  <div className="w-full h-[60px]">
-                                      <Button variant="secondary" isFullSize as="a" href="./history">
-                                          <span className="text-md">View submission history</span>
-                                      </Button>
-                                  </div>
-                              </div>
-                              <p className="text-sm text-gray-500 font-inter text-center">
-                                  You last tracked symptoms 3 hours ago.
-                              </p>
-                          </div>
-                      </DashboardModule>
+                      <MoodForm/>
                   </div>
                   <div className="flex-1">
                       <DashboardModule variant="normal" isFullSize>
-                          <h3 className="font-bold text-gray-200 text-xl">How are you feeling?</h3>
+                          <div className="flex gap-6">
+                              <h3 className="font-bold text-gray-200 text-xl">Latest updates</h3>
+                              <Button variant="text" as="a" href="./progress">View more</Button>
+                          </div>
                           <div className="py-6">
-                              Insert stuff here (TBD)
+                              Content here is to be determined.
                           </div>
 
                       </DashboardModule>
