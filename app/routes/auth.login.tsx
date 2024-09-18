@@ -14,10 +14,8 @@ const EmailAndPassword = ({
   setErrorMessage,
 }: {
   password: string;
-  confirmPassword: string;
   emailAddress: string;
   setPassword: (newPassword: string) => void;
-  setConfirmPassword: (newConfirmPassword: string) => void;
   setEmailAddress: (newEmailAddress: string) => void;
   nextStep: () => void;
   errorMessage: string | undefined;
@@ -82,7 +80,7 @@ const EmailAndPassword = ({
   );
 };
 
-export default function Auth() {
+export default function AuthLogin() {
   const [emailAddress, setEmailAddress] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 

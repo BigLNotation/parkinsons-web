@@ -224,7 +224,7 @@ const RoleSelection = ({
   );
 };
 
-export default function Auth() {
+export default function AuthSignup() {
   const [emailAddress, setEmailAddress] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState<string>('');
   const [password, setPassword] = useState<string>('');
