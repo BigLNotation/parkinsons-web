@@ -29,33 +29,41 @@ function Navbar({
     <header className={variants[variant]}>
       <div className="h-full w-full flex justify-between items-center overflow-hidden">
         {/* Left side */}
-        <div className="px-8 flex gap-8 items-center">
-          <div className="flex gap-4 items-center">
-            <div className="w-[25px] h-[25px] bg-teal-800 rounded-full"></div>
+          <div className="px-8 flex gap-8 items-center">
+              <div className="flex gap-4 items-center">
+                  <div className="w-[25px] h-[25px] bg-teal-800 rounded-full">
 
-            <div className="flex gap-4 justify-between items-end leading-3">
-              {/* Logo placeholder here */}
-              <p className="font-semibold text-white text-lg leading-4">
-                Parkinson&apos;s Pulse
-              </p>
+                  </div>
 
-              {variant === 'caregiver' && (
-                <p className="font-normal text-red-750">
-                  for Caregivers and Clinicians
-                </p>
-              )}
-            </div>
+                  <a className="flex gap-4 justify-between items-end leading-3" href="/dashboard/home">
+                      {/* Logo placeholder here */}
+                      <p className="font-semibold text-white text-lg leading-4">
+                          Parkinson&apos;s Pulse
+                      </p>
+
+                      {variant === "caregiver" &&
+                          <p className="font-normal text-red-750">
+                              for Caregivers and Clinicians
+                          </p>
+                      }
+                  </a>
+              </div>
+              <div className="gap-4 items-center lg:flex hidden">
+                  {isSidebarOpen
+                  ? <NavbarButton variant="sidebarActive" onClick={toggleSidebar}>Sidebar</NavbarButton>
+                  : <NavbarButton variant="sidebar" onClick={toggleSidebar}>Sidebar</NavbarButton>}
+                  <NavbarButton variant="accessibility" onClick={toggleAccessibilityModal}>Accessibility</NavbarButton>
+              </div>
           </div>
-        </div>
 
         {/* Right side */}
 
-        <div>
+        <div className="hidden md:block">
           {/*
-                            TODO make this functional based on the user lol
-                            Right now it's just creating and passing a fake placeholder user object depending
-                            on the navbar variant for demo reasons.
-                        */}
+                  TODO make this functional based on the user lol
+                  Right now it's just creating and passing a fake placeholder user object depending
+                  on the navbar variant for demo reasons.
+              */}
           {variant === 'caregiver' ? (
             <UserDropdown
               user={{

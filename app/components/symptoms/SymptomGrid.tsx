@@ -18,10 +18,11 @@ import symptoms_array from "./symptom_data";
 // }
 
 type SymptomGridProps = {
-    category: string
+    category: string,
+    handleSymptomClick: (string)=>void
 }
 
-function SymptomGrid({category}: SymptomGridProps) {
+function SymptomGrid({category, handleSymptomClick}: SymptomGridProps) {
 
     // display by category i.e. motor/nonmotor
     const displayed_symptoms = symptoms_array.filter((s) => s.category === category)
@@ -29,7 +30,8 @@ function SymptomGrid({category}: SymptomGridProps) {
     return(
         <div className="flex flex-wrap gap-8 py-4">
             {displayed_symptoms.map((s) =>
-                <SymptomCard symptom={s.symptom} desc={s.desc} status={s.status} recentlyCompleted={s.recentlyCompleted} key={s.symptom} link={s.route}/>
+                <SymptomCard symptom={s.symptom} desc={s.desc} status={s.status} recentlyCompleted={s.recentlyCompleted} key={s.symptom}
+                             onClick={() => handleSymptomClick(s.symptom)}/>
             )}
         </div>
     )

@@ -2,6 +2,11 @@
 import React, { useState } from 'react';
 import SymptomForm from '~/components/symptoms/form/SymptomForm';
 
+/*
+This file's functionality has been superseded by the page route for symptoms: dashboard.patients.symptoms, and the
+SymptomForm component and symptom_questions data in the symptoms/form component folder.
+ */
+
 const Slider: React.FC = () => {
     const [currentSymptom, setCurrentSymptom] = useState('Depression'); // change state to change symptom
 
