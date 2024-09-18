@@ -24,8 +24,11 @@ export default function DashboardPatientsHome({variant}: PatientsDashboardProps)
         </h1>
 
           <div className="py-6 flex flex-col gap-8">
-              <div className="flex gap-8">
-                  <div className="w-[450px]">
+              <div className="flex gap-8 flex-col xl:flex-row">
+                  <div className="w-full md:hidden block">
+                      <QuickAccess/>
+                  </div>
+                  <div className="w-full xl:w-[450px]">
                       <MoodForm/>
                   </div>
                   <div className="flex-1">

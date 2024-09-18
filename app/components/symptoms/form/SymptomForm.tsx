@@ -8,7 +8,7 @@ import symptomQuestions from "~/components/symptoms/form/symptom_questions";
 
 interface SymptomFormProps {
     symptom: string,
-    handleSymptomClick: (string)=>void
+    handleSymptomClick: (a: string)=>void
     // questions: {
     //     text: string;
     //     answers: string[];
@@ -49,7 +49,7 @@ const SymptomForm: React.FC<SymptomFormProps> = ({ symptom, handleSymptomClick }
                     />
                 );
             })}
-            <TextBox name="notes" placeholder="Leave any additional notes here, please!"/> {/* Style later! */}
+            <textarea name="notes" placeholder="Leave any additional notes here, please!" className="bg-gray-990 border-2 border-gray-850 py-2 px-2 rounded-xl"/>
             <div className="flex gap-4 mx-auto">
                 <Button variant="tertiary">Back</Button>
                 <Button variant="primary" type="submit">Submit</Button>
