@@ -2,26 +2,43 @@
 import React from 'react';
 import Question from '~/components/symptoms/form/Question';
 import TextBox from '~/components/symptoms/form/TextBox';
+import Button from "~/components/ui/Button";
+
+import symptomQuestions from "~/components/symptoms/form/symptom_questions";
 
 interface SymptomFormProps {
-    symptom: string;
-    questions: {
-        text: string;
-        answers: string[];
-    }[];
+    symptom: string,
+    handleSymptomClick: (string)=>void
+    // questions: {
+    //     text: string;
+    //     answers: string[];
+    // }[];
 }
 
-const SymptomForm: React.FC<SymptomFormProps> = ({ symptom, questions }) => {
+const SymptomForm: React.FC<SymptomFormProps> = ({ symptom, handleSymptomClick }) => {
+
+    const questions = symptomQuestions[symptom];
+
+    function handleSubmit(){
+        event.preventDefault()
+
+        // Close the form by removing the symptom from state
+        handleSymptomClick("");
+
+        // TODO some actual submitting stuff
+    }
+
     return (
         <form 
-            className="w-[45vw] m-10" 
-            method="post" 
-            action="/form-endpoint"
+            className="flex flex-col gap-12 text-gray-200"
+            //method="post"
+            //action="endpoint"
+            onSubmit={() => handleSubmit}
         >
-            {questions.map((question, index) => {
+            {questions && questions.map((question, index) => {
                 const questionId = `question_${index}`;
                 return ( // question component
-                    <Question 
+                    <Question
                         key={questionId} //ID for the question
                         text={question.text.replace('${symptom}', symptom.toLowerCase())}
                         answers={question.answers.map(answer => answer.replace('${symptom}', symptom.toLowerCase()))}
@@ -33,7 +50,11 @@ const SymptomForm: React.FC<SymptomFormProps> = ({ symptom, questions }) => {
                 );
             })}
             <TextBox name="notes" placeholder="Leave any additional notes here, please!"/> {/* Style later! */}
-            <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded">Submit</button> {/* Style later! */}
+            <div className="flex gap-4 mx-auto">
+                <Button variant="tertiary">Back</Button>
+                <Button variant="primary" type="submit">Submit</Button>
+            </div>
+
         </form>
     );
 };

@@ -35,7 +35,7 @@ export default function DashboardPatientsHome({variant}: PatientsDashboardProps)
                               <Button variant="text" as="a" href="./progress">View more</Button>
                           </div>
                           <div className="py-6">
-                              Content here is to be determined.
+                              PLACEHOLDER
                           </div>
 
                       </DashboardModule>

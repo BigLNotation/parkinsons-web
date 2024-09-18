@@ -16,7 +16,7 @@ Toggles based on navbar buttons:
 export default function DashboardPatients() {
 
     // Logic to handle sidebar toggling
-    const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
+    const [isSidebarOpen, setIsSidebarOpen] = React.useState(true);
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
