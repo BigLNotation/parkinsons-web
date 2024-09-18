@@ -1,10 +1,14 @@
 import React from 'react';
 
+import NavbarButton from '~/components/ui/NavButton';
 import UserDropdown from './UserDropdown';
 import useUserInformation from '../hooks/use-user-information';
 
 type NavbarProps = {
   variant: 'patient' | 'caregiver';
+  toggleSidebar: () => void;
+  toggleAccessibilityModal: () => void;
+  isSidebarOpen: boolean;
 };
 
 const variants = {
@@ -14,13 +18,18 @@ const variants = {
     'h-[70px] w-full sticky top-0 bg-teal-100 border-b-2 border-teal-500',
 };
 
-function Navbar({ variant }: NavbarProps) {
+function Navbar({
+  variant,
+  isSidebarOpen,
+  toggleSidebar,
+  toggleAccessibilityModal,
+}: NavbarProps) {
   const { data } = useUserInformation();
   return (
     <header className={variants[variant]}>
       <div className="h-full w-full flex justify-between items-center overflow-hidden">
         {/* Left side */}
-        <div className="px-8">
+        <div className="px-8 flex gap-8 items-center">
           <div className="flex gap-4 items-center">
             <div className="w-[25px] h-[25px] bg-teal-800 rounded-full"></div>
 

@@ -82,14 +82,24 @@ export default {
       "inter": ['Inter, Arial, sans-serif']
     },
     fontSize:{
-      "sm": '15px',
-      "md": "18px",
-      "lg": "21px",
-      "xl": "26px",
-      "2xl": "31px",
-      "3xl": "37px",
-      "4xl": "46px",
-      "5xl": "56px" // Don't use this
+      "sm": '0.9375rem',
+      "md": "1.125rem",
+      "lg": "1.3125rem",
+      "xl": "1.625rem",
+      "2xl": "1.9375rem",
+      "3xl": "2.3125rem",
+      "4xl": "2.875rem",
+      "5xl": "3.5rem" // Don't use this
+
+      // Pixel variants
+      // "sm": '15px',
+      // "md": "18px",
+      // "lg": "21px",
+      // "xl": "26px",
+      // "2xl": "31px",
+      // "3xl": "37px",
+      // "4xl": "46px",
+      // "5xl": "56px"
     },
     fontWeight:{
       "thin": "300",
