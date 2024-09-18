@@ -3,13 +3,16 @@ the boxes for symptom selecting
  */
 
 import Button from "~/components/ui/Button"
+import React from "react";
 
-type SymptomCardProps = {
+// Currently designed to function as a button controlling state, can be modified to link to a seperate page for the form if we wanted.
+
+type SymptomCardProps = React.HTMLAttributes<HTMLButtonElement> & {
     symptom: string,
     desc: string,
     status: string,
     recentlyCompleted: boolean,
-    link?: string,
+    //link?: string,
 }
 
 const variants = {
@@ -22,26 +25,26 @@ const statusVariants = {
     highlighted: "text-sm font-inter text-teal-300 leading-none"
 }
 
-function SymptomCard({symptom, desc, status, recentlyCompleted, link}: SymptomCardProps) {
+function SymptomCard({symptom, desc, status, recentlyCompleted, ...other}: SymptomCardProps) {
     return(
-        <a className={recentlyCompleted ? variants["highlighted"] : variants["normal"]} href={link}>
+        <button className={recentlyCompleted ? variants["highlighted"] : variants["normal"]} {...other}>
             <div className="flex gap-8 items-center justify-between ">
 
                 {/*TODO Put icons here*/}
                 <div className="w-[70px] h-[70px] bg-gray-500 rounded-full"></div>
 
-                <div className="w-[220px] flex flex-col gap-5">
+                <div className="w-[220px] flex flex-col gap-5 text-left">
                     <div className="flex flex-col gap-2">
                         <p className="text-md font-bold text-gray-200 leading-none">{symptom}</p>
                         <p className="text-md font-normal text-gray-300 leading-none">{desc}</p>
                     </div>
                     <p className={recentlyCompleted ? statusVariants["highlighted"] : statusVariants["normal"]}>{status}</p>
                     <div>
-                        <Button as="a" variant="secondary" href={link}>Track ➜</Button>
+                        <Button as="a" variant="secondary">Track ➜</Button>
                     </div>
                 </div>
             </div>
-        </a>
+        </button>
     )
 }
 

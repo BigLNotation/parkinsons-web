@@ -40,7 +40,7 @@ function Navbar({variant, isSidebarOpen, toggleSidebar, toggleAccessibilityModal
                             }
                         </a>
                     </div>
-                    <div className="flex gap-4 items-center">
+                    <div className="gap-4 items-center lg:flex hidden">
                         {isSidebarOpen
                         ? <NavbarButton variant="sidebarActive" onClick={toggleSidebar}>Sidebar</NavbarButton>
                         : <NavbarButton variant="sidebar" onClick={toggleSidebar}>Sidebar</NavbarButton>}
@@ -51,7 +51,7 @@ function Navbar({variant, isSidebarOpen, toggleSidebar, toggleAccessibilityModal
 
                 {/* Right side */}
 
-                <div>
+                <div className="hidden md:block">
                     {/*
                             TODO make this functional based on the user lol
                             Right now it's just creating and passing a fake placeholder user object depending

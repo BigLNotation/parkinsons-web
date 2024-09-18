@@ -15,8 +15,8 @@ const Question: React.FC<QuestionProps> = ({ text, answers, min, max, step, slid
     const id = `question-${sliderName}`;
 
     return (
-        <div className="mb-10">
-            <label htmlFor={id} className="text-lg font-bold font-sans mt-10">{text}</label>
+        <div className="flex flex-col gap-2">
+            <label htmlFor={id} className="text-lg font-bold">{text}</label>
             <div className="grid grid-cols-3 gap-16">
                 {answers.map((answer, idx) => (
                     <p key={idx} className={`text-sm font-inter ${idx === 0 ? 'text-left' : idx === 1 ? 'text-center' : 'text-right'}`}>
