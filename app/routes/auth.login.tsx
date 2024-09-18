@@ -1,4 +1,5 @@
 import { Navigate, useNavigate } from '@remix-run/react';
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Navbar from '~/components/layout/Navbar';
 import NavbarLoggedOut from '~/components/layout/NavbarLoggedOut';
@@ -102,12 +103,19 @@ export default function AuthLogin() {
   const navigate = useNavigate();
 
   const submitForm = async (emailAddress: string, password: string) => {
-    const loginRes = await fetch('http://localhost:4444/auth/login', {
+    await axios({
+      method: 'PATCH',
+      url: 'http://localhost:4444/auth/logout',
+      withCredentials: true,
+    });
+    const loginRes = await axios({
       method: 'POST',
+      url: 'http://localhost:4444/auth/login',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
+      withCredentials: true,
+      data: JSON.stringify({
         email_address: emailAddress,
         password,
       }),

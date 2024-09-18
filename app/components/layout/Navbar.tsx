@@ -1,17 +1,21 @@
 import React from 'react';
 
 import UserDropdown from './UserDropdown';
+import useUserInformation from '../hooks/use-user-information';
 
 type NavbarProps = {
   variant: 'patient' | 'caregiver';
 };
 
 const variants = {
-    "patient": "h-[70px] w-full sticky top-0 bg-teal-100 border-b-2 border-teal-500",
-    "caregiver": "h-[70px] w-full sticky top-0 bg-teal-100 border-b-2 border-teal-500",
-}
+  patient:
+    'h-[70px] w-full sticky top-0 bg-teal-100 border-b-2 border-teal-500',
+  caregiver:
+    'h-[70px] w-full sticky top-0 bg-teal-100 border-b-2 border-teal-500',
+};
 
 function Navbar({ variant }: NavbarProps) {
+  const { data } = useUserInformation();
   return (
     <header className={variants[variant]}>
       <div className="h-full w-full flex justify-between items-center overflow-hidden">
@@ -54,7 +58,7 @@ function Navbar({ variant }: NavbarProps) {
           ) : (
             <UserDropdown
               user={{
-                name: 'Chris Graham',
+                name: data?.first_name!,
                 org: "St Alex's International Hospital",
                 isCaregiver: false,
               }}

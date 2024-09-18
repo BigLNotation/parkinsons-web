@@ -1,4 +1,5 @@
 import { Navigate, useNavigate } from '@remix-run/react';
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Navbar from '~/components/layout/Navbar';
 import NavbarLoggedOut from '~/components/layout/NavbarLoggedOut';
@@ -275,12 +276,19 @@ export default function AuthSignup() {
     password: string,
     role: 'patient' | 'caregiver'
   ) => {
-    const createRes = await fetch('http://localhost:4444/auth/create', {
+    await axios({
+      method: 'PATCH',
+      url: 'http://localhost:4444/auth/logout',
+      withCredentials: true,
+    });
+    const createRes = await axios({
       method: 'POST',
+      url: 'http://localhost:4444/auth/create',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
+      withCredentials: true,
+      data: JSON.stringify({
         first_name: firstName,
         last_name: lastName,
         email_address: emailAddress,
@@ -292,12 +300,14 @@ export default function AuthSignup() {
       setErrorMessage('We were unable to create your account');
       return;
     }
-    await fetch('http://localhost:4444/auth/login', {
+    const loginRes = await axios({
       method: 'POST',
+      url: 'http://localhost:4444/auth/login',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
+      withCredentials: true,
+      data: JSON.stringify({
         email_address: emailAddress,
         password,
       }),
