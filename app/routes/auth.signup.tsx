@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { Navigate, useNavigate } from '@remix-run/react';
+import { useEffect, useState } from 'react';
 import Navbar from '~/components/layout/Navbar';
 import NavbarLoggedOut from '~/components/layout/NavbarLoggedOut';
 import Button from '~/components/ui/Button';
@@ -9,24 +10,30 @@ const NameInfo = ({
   setFirstName,
   setLastName,
   nextStep,
+  errorMessage,
+  setErrorMessage,
 }: {
   firstName: string;
   lastName: string;
   setFirstName: (firstName: string) => void;
   setLastName: (lastName: string) => void;
   nextStep: () => void;
+  errorMessage: string | undefined;
+  setErrorMessage: (newErrorMessage: string | undefined) => void;
 }) => {
-  const [error, setError] = useState<string | undefined>();
+  useEffect(() => {
+    setErrorMessage(undefined);
+  }, []);
 
   return (
-    <div className="flex flex-col p-6">
-      <div className="flex flex-col gap-2 p-12 rounded-xl bg-gray-950">
+    <div className="flex flex-col w-full max-w-[550px] md:p-6">
+      <div className="flex flex-col gap-2 p-12 rounded-xl md:bg-gray-950">
         <form
           action={undefined}
           onSubmit={() => {}}
           className="flex flex-col gap-4"
         >
-          <div className="flex flex-col gap-2 lg:w-[380px] w-full">
+          <div className="flex flex-col gap-2 w-full">
             <label
               className="font-semibold text-gray-300 text-md"
               htmlFor="first-name"
@@ -54,13 +61,12 @@ const NameInfo = ({
               onChange={(event) => setLastName(event.target.value)}
             ></input>
           </div>
-          <p className="text-red-600 font-semibold h-12">{error}</p>
+          <p className="text-red-600 font-semibold h-12">{errorMessage}</p>
           <div className="w-full flex flex-row justify-end ">
             <Button
               variant="primary"
               onClick={(event) => {
                 event.preventDefault();
-
                 nextStep();
               }}
             >
@@ -81,6 +87,8 @@ const EmailAndPassword = ({
   setConfirmPassword,
   setEmailAddress,
   nextStep,
+  errorMessage,
+  setErrorMessage,
 }: {
   password: string;
   confirmPassword: string;
@@ -89,18 +97,22 @@ const EmailAndPassword = ({
   setConfirmPassword: (newConfirmPassword: string) => void;
   setEmailAddress: (newEmailAddress: string) => void;
   nextStep: () => void;
+  errorMessage: string | undefined;
+  setErrorMessage: (newErrorMessage: string | undefined) => void;
 }) => {
-  const [error, setError] = useState<string | undefined>();
+  useEffect(() => {
+    setErrorMessage(undefined);
+  }, []);
 
   return (
-    <div className="flex flex-col p-6">
-      <div className="flex flex-col gap-2 p-12 rounded-xl bg-gray-950">
+    <div className="flex flex-col w-full max-w-[550px] md:p-6">
+      <div className="flex flex-col gap-2 p-12 rounded-xl md:bg-gray-950">
         <form
           action={undefined}
           onSubmit={() => {}}
           className="flex flex-col gap-4"
         >
-          <div className="flex flex-col gap-2 lg:w-[380px] w-full">
+          <div className="flex flex-col gap-2 w-full">
             <label
               className="font-semibold text-gray-300 text-md"
               htmlFor="email-address"
@@ -144,14 +156,14 @@ const EmailAndPassword = ({
               onChange={(event) => setConfirmPassword(event.target.value)}
             ></input>
           </div>
-          <p className="text-red-600 font-semibold h-12">{error}</p>
+          <p className="text-red-600 font-semibold h-12">{errorMessage}</p>
           <div className="w-full flex flex-row justify-end ">
             <Button
               variant="primary"
               onClick={(event) => {
                 event.preventDefault();
                 if (password != confirmPassword) {
-                  setError('Passwords do not match');
+                  setErrorMessage('Passwords do not match');
                   return;
                 }
                 nextStep();
@@ -172,6 +184,8 @@ const RoleSelection = ({
   setRoleSelected: (
     newRoleSelected: 'patient' | 'caregiver' | undefined
   ) => void;
+  errorMessage: string | undefined;
+  setErrorMessage: (newErrorMessage: string | undefined) => void;
 }) => {
   return (
     <div className="w-full lg:p-16">
@@ -218,6 +232,8 @@ export default function Auth() {
   const [firstName, setFirstName] = useState<string>('');
   const [lastName, setLastName] = useState<string>('');
 
+  const [errorMessage, setErrorMessage] = useState<string | undefined>('');
+
   const [roleSelected, setRoleSelected] = useState<
     'patient' | 'caregiver' | undefined
   >();
@@ -238,6 +254,7 @@ export default function Auth() {
         setStep('name-info');
       }
       case 'name-info': {
+        if (!firstName || !lastName) return;
         await submitForm(
           firstName,
           lastName,
@@ -247,6 +264,45 @@ export default function Auth() {
         );
       }
     }
+  };
+
+  const navigate = useNavigate();
+
+  const submitForm = async (
+    firstName: string,
+    lastName: string,
+    emailAddress: string,
+    password: string,
+    role: 'patient' | 'caregiver'
+  ) => {
+    const createRes = await fetch('http://localhost:4444/auth/create', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        first_name: firstName,
+        last_name: lastName,
+        email_address: emailAddress,
+        password,
+        is_patient: role == 'patient',
+      }),
+    });
+    if (createRes.status !== 200) {
+      setErrorMessage('We were unable to create your account');
+      return;
+    }
+    await fetch('http://localhost:4444/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email_address: emailAddress,
+        password,
+      }),
+    });
+    navigate('/dashboard');
   };
 
   return (
@@ -263,6 +319,8 @@ export default function Auth() {
                     setRoleSelected(...any);
                     nextStep();
                   }}
+                  errorMessage={errorMessage}
+                  setErrorMessage={setErrorMessage}
                 />
               );
             }
@@ -276,6 +334,8 @@ export default function Auth() {
                   setConfirmPassword={setConfirmPassword}
                   setEmailAddress={setEmailAddress}
                   nextStep={nextStep}
+                  errorMessage={errorMessage}
+                  setErrorMessage={setErrorMessage}
                 />
               );
             }
@@ -287,6 +347,8 @@ export default function Auth() {
                   setFirstName={setFirstName}
                   setLastName={setLastName}
                   nextStep={nextStep}
+                  errorMessage={errorMessage}
+                  setErrorMessage={setErrorMessage}
                 />
               );
             }
@@ -299,21 +361,3 @@ export default function Auth() {
     </div>
   );
 }
-
-export const submitForm = async (
-  firstName: string,
-  lastName: string,
-  emailAddress: string,
-  password: string,
-  role: 'patient' | 'caregiver'
-) => {
-  await fetch('http://localhost:3000/auth/signup', {
-    body: JSON.stringify({
-      firstName,
-      lastName,
-      emailAddress,
-      password,
-      role,
-    }),
-  });
-};
