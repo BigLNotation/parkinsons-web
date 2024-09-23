@@ -16,7 +16,6 @@ function HistoryList() {
     return(
         <div className="flex flex-wrap gap-3 py-4">
             {displayed_items.map((item) =>
-
                 //@ts-expect-error category type lol
                 <HistoryItem key={item.id} symptom={item.symptom} submitted={item.submitted} category={item.category}/>
             )}
