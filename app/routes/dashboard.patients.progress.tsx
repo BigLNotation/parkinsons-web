@@ -4,6 +4,8 @@
 */
 
 import Notice from "~/components/layout/Notice";
+import DashboardModule from "~/components/dashboards/DashboardModule";
+import SymptomGraph from "~/components/progress/SymptomGraph";
 
 export default function DashboardPatientsProgress() {
   return (
@@ -14,6 +16,13 @@ export default function DashboardPatientsProgress() {
           <Notice variant="warning" title="whoopsies">
               (the progress pages and statistics displays are still under construction...)
           </Notice>
+
+          <DashboardModule variant={"accent"}>
+              <div className="flex flex-col gap-8">
+                  <h3 className="font-bold text-gray-200 text-lg">Select a symptom</h3>
+                  <SymptomGraph/>
+              </div>
+          </DashboardModule>
       </div>
   );
 }
