@@ -63,8 +63,8 @@ function SymptomGraphLine() {
             legend: {
                 labels: {
                     font: {
-                        size: "15px", // Font size for the legend
-                        family: "Inter", // Tailwind font family
+                        size: "15px",
+                        family: "Inter",
                     },
                 },
             },
