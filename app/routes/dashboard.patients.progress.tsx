@@ -5,7 +5,7 @@
 
 import Notice from "~/components/layout/Notice";
 import DashboardModule from "~/components/dashboards/DashboardModule";
-import SymptomGraph from "~/components/progress/SymptomGraph";
+import SymptomGraphLine from "~/components/progress/SymptomGraphLine";
 
 export default function DashboardPatientsProgress() {
   return (
@@ -20,7 +20,7 @@ export default function DashboardPatientsProgress() {
           <DashboardModule variant={"accent"}>
               <div className="flex flex-col gap-8">
                   <h3 className="font-bold text-gray-200 text-lg">Select a symptom</h3>
-                  <SymptomGraph/>
+                  <SymptomGraphLine/>
               </div>
           </DashboardModule>
       </div>
