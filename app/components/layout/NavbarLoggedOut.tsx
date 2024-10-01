@@ -5,7 +5,7 @@ function NavbarLoggedOut() {
   const navigate = useNavigate();
 
   return (
-    <header className="h-[70px] w-screen sticky top-0 bg-teal-990 border-b-2 border-teal-800">
+    <header className="h-[70px] w-screen sticky top-0 bg-teal-990 border-b-[3px] border-teal-800">
       <div className="h-full w-[80%] min-w-[800px] max-w-[1400px] my-0 mx-auto flex justify-between items-center overflow-hidden">
         {/* Left side */}
         <div className="">

@@ -28,7 +28,7 @@ const NameInfo = ({
 
   return (
     <div className="flex flex-col w-full max-w-[550px] md:p-6">
-      <div className="flex flex-col gap-2 p-12 rounded-xl md:bg-gray-950">
+      <div className="flex flex-col gap-2 p-12 rounded-2xl md:bg-gray-950">
         <form
           action={undefined}
           onSubmit={() => {}}
@@ -63,9 +63,10 @@ const NameInfo = ({
             ></input>
           </div>
           <p className="text-red-600 font-semibold h-12">{errorMessage}</p>
-          <div className="w-full flex flex-row justify-end ">
+          <div className="w-full">
             <Button
               variant="primary"
+              isFullSize
               onClick={(event) => {
                 event.preventDefault();
                 nextStep();
@@ -106,8 +107,8 @@ const EmailAndPassword = ({
   }, []);
 
   return (
-    <div className="flex flex-col w-full max-w-[550px] md:p-6">
-      <div className="flex flex-col gap-2 p-12 rounded-xl md:bg-gray-950">
+    <div className="flex flex-col w-[80%] max-w-[550px]">
+      <div className="flex flex-col gap-2 p-12 rounded-3xl md:bg-gray-950">
         <form
           action={undefined}
           onSubmit={() => {}}
@@ -122,7 +123,8 @@ const EmailAndPassword = ({
             </label>
             <input
               name="email-address"
-              className="p-2 rounded-xl border-solid border-2 border-gray-500"
+              className="py-3 rounded-xl border-solid border-2 border-gray-850 px-4"
+              placeholder="Your email address"
               value={emailAddress}
               onChange={(event) => setEmailAddress(event.target.value)}
             ></input>
@@ -137,7 +139,8 @@ const EmailAndPassword = ({
             <input
               name="password"
               type="password"
-              className="p-2 rounded-xl border-solid border-2 border-gray-500"
+              className="py-3 rounded-xl border-solid border-2 border-gray-850 px-4"
+              placeholder="Your password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             ></input>
@@ -151,16 +154,17 @@ const EmailAndPassword = ({
             </label>
             <input
               name="confirm-password"
-              className="p-2 rounded-xl border-solid border-2 border-gray-500"
+              className="py-3 rounded-xl border-solid border-2 border-gray-850 px-4"
               type="password"
               value={confirmPassword}
               onChange={(event) => setConfirmPassword(event.target.value)}
             ></input>
           </div>
           <p className="text-red-600 font-semibold h-12">{errorMessage}</p>
-          <div className="w-full flex flex-row justify-end ">
+          <div className="w-full">
             <Button
               variant="primary"
+              isFullSize
               onClick={(event) => {
                 event.preventDefault();
                 if (password != confirmPassword) {
@@ -189,37 +193,49 @@ const RoleSelection = ({
   setErrorMessage: (newErrorMessage: string | undefined) => void;
 }) => {
   return (
-    <div className="w-full lg:p-16">
-      <div className="flex flex-col gap-4 bg-teal-950 w-full p-8 rounded-xl justify-center items-center">
-        <h3 className="text-xl text-gray-400 font-semibold">
-          Which of these best describe you?
+    <div className="w-full">
+      <div className="flex flex-col gap-16 bg-teal-950 py-16 rounded-2xl justify-center items-center w-[80%] max-w-[1400px] mx-auto">
+        <h3 className="text-xl text-gray-400 font-bold">
+          Which of these best describes you?
         </h3>
-        <div className="flex flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-8">
           <button
-            onClick={() => setRoleSelected('patient')}
-            className="rounded-xl w-[286px] h-[342px] bg-teal-850 flex flex-col gap-4 justify-center items-center font-bold text-gray-400"
+              onClick={() => setRoleSelected('patient')}
+              className="rounded-xl px-10 py-16 bg-teal-850 flex flex-col gap-4 justify-center items-center font-bold text-gray-400"
           >
-            <span className="bg-purple-600 rounded-full w-[120px] aspect-square flex flex-col justify-center items-center">
+            <span
+                className="bg-purple-600 rounded-full w-[150px] aspect-square flex flex-col justify-center items-center">
               <img
-                width={60}
-                src="/icons/person-icon.svg"
+                  width={100}
+                  src="/icons/person-icon.svg"
+                  alt=""
               />
             </span>
-            I'm living with Parkinson's
+            <p className="text-purple-300 text-lg font-bold  w-[200px] leading-6">
+              I'm living with Parkinson's
+            </p>
+
           </button>
           <button
-            className="rounded-xl w-[286px] h-[342px] bg-teal-850 flex flex-col gap-4 justify-center items-center font-bold text-gray-400"
-            onClick={() => setRoleSelected('caregiver')}
+              className="rounded-xl px-10 py-16 bg-teal-850 flex flex-col gap-4 justify-center items-center font-bold text-gray-400"
+              onClick={() => setRoleSelected('caregiver')}
           >
-            <span className="bg-purple-600 rounded-full w-[120px] aspect-square flex flex-col justify-center items-center">
+            <span
+                className="bg-purple-600 rounded-full w-[150px] aspect-square flex flex-col justify-center items-center">
               <img
-                width={120}
-                src="/icons/bingud.png"
+                  width={200}
+                  src="/icons/bingud.png"
+                  alt=""
               />
             </span>
-            I'm a nurse, doctor, or caregiver
+            <p className="text-purple-300 text-lg font-bold w-[200px] leading-6">
+              I'm a nurse, doctor, or caregiver
+            </p>
           </button>
         </div>
+        <p className="text-sm text-gray-500 font-inter">
+          Next week's winning Lotto numbers: 1, 12, 14, 29, 31, 35, with a Powerball of 2.
+        </p>
       </div>
     </div>
   );
@@ -318,8 +334,8 @@ export default function AuthSignup() {
   return (
     <div className="">
       <NavbarLoggedOut />
-      <div className="flex flex-col justify-center items-center pt-12">
-        <h2 className="font-bold text-xl">Sign up to Parkinson's Pulse</h2>
+      <div className="flex flex-col justify-center items-center pt-16 gap-8">
+        <h2 className="font-extrabold text-2xl text-gray-200">Sign up to Parkinson's Pulse</h2>
         {(() => {
           switch (step) {
             case 'role-select': {
