@@ -29,11 +29,11 @@ function Navbar({
     <header className={variants[variant]}>
       <div className="h-full w-full flex justify-between items-center overflow-hidden">
         {/* Left side */}
-          <div className="px-8 flex gap-8 items-center">
+          <div className="px-8 flex gap-12 items-center">
               <div className="flex gap-4 items-center">
-                  <div className="w-[25px] h-[25px] bg-teal-800 rounded-full">
+                  <img className="w-[35px] h-[35px]" src="/brand/parkinsonspulse_icon-LIGHT2.png">
 
-                  </div>
+                  </img>
 
                   <a className="flex gap-4 justify-between items-end leading-3" href="/dashboard/home">
                       {/* Logo placeholder here */}
