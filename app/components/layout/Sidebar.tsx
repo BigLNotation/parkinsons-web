@@ -6,10 +6,10 @@ type SidebarProps = {
 }
 
 const variants = {
-    "patient": "w-[300px] h-[calc(100vh-70px)] bg-[#E1F7F3] sticky top-[70px] left-0 hidden md:block",
+    "patient": "w-[300px] h-[calc(100vh-70px)] bg-[#E1F7F3] sticky top-[70px] left-0 hidden md:block z-40",
 
     //TODO finish caregiver variant
-    "caregiver": "w-[300px] h-[calc(100vh-70px)] bg-[#E1F7F3] sticky top-[70px] left-0",
+    "caregiver": "w-[300px] h-[calc(100vh-70px)] bg-[#E1F7F3] sticky top-[70px] left-0 z-40",
 }
 
 function Sidebar({variant}: SidebarProps) {

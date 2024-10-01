@@ -13,9 +13,9 @@ type NavbarProps = {
 
 const variants = {
   patient:
-    'h-[70px] w-full sticky top-0 bg-teal-100 border-b-2 border-teal-500',
+    'h-[70px] w-full sticky top-0 bg-teal-100 border-b-2 border-teal-500 z-50',
   caregiver:
-    'h-[70px] w-full sticky top-0 bg-teal-100 border-b-2 border-teal-500',
+    'h-[70px] w-full sticky top-0 bg-teal-100 border-b-2 border-teal-500 z-50',
 };
 
 function Navbar({
