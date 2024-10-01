@@ -40,7 +40,6 @@ export default function DashboardPatientsHome({variant}: PatientsDashboardProps)
                           <div className="py-6">
                               PLACEHOLDER
                           </div>
-
                       </DashboardModule>
                   </div>
               </div>

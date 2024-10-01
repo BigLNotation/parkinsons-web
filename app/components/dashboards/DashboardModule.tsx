@@ -17,8 +17,8 @@ type DashboardProps = {
 }
 
 const variants = {
-    normal: "bg-gray-990 border-2 border-gray-850 py-8 px-9 rounded-2xl w-full",
-    accent: "bg-purple-980 border-2 border-purple-850 py-8 px-9 rounded-2xl w-full"
+    normal: "bg-gray-990 border-2 border-gray-850 py-8 px-9 rounded-2xl w-full h-full",
+    accent: "bg-purple-980 border-2 border-purple-850 py-8 px-9 rounded-2xl w-full h-full"
 }
 
 function DashboardModule({variant, isFullSize = false, children}: DashboardProps) {
