@@ -31,11 +31,13 @@ function Navbar({
         {/* Left side */}
           <div className="px-8 flex gap-12 items-center">
               <div className="flex gap-4 items-center">
-                  <img className="w-[35px] h-[35px]" src="/brand/parkinsonspulse_icon-LIGHT2.png">
+                  <img className="w-[35px] h-[35px]" src="/brand/parkinsonspulse_icon-LIGHT2.png" alt="">
 
                   </img>
 
-                  <a className="flex gap-4 justify-between items-end leading-3" href="/dashboard/home">
+                  <a className="flex gap-4 justify-between items-end leading-3"
+                     href={variant === "patient" ? "/dashboard/patients/home" : "/dashboard/caregivers/home"}>
+
                       {/* Logo placeholder here */}
                       <p className="font-semibold text-white text-lg leading-4">
                           Parkinson&apos;s Pulse
