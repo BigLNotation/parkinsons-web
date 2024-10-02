@@ -27,8 +27,8 @@ const EmailAndPassword = ({
   }, []);
 
   return (
-    <div className="flex flex-col w-full max-w-[550px] md:p-6">
-      <div className="flex flex-col gap-2 p-12 rounded-xl md:bg-gray-950">
+    <div className="flex flex-col w-[80%] max-w-[550px]">
+      <div className="flex flex-col gap-2 p-12 rounded-3xl md:bg-gray-950">
         <form
           action={undefined}
           onSubmit={() => {}}
@@ -43,7 +43,8 @@ const EmailAndPassword = ({
             </label>
             <input
               name="email-address"
-              className="p-2 rounded-xl border-solid border-2 border-gray-500"
+              className="py-3 rounded-xl border-solid border-2 border-gray-850 px-4"
+              placeholder="Your email address"
               value={emailAddress}
               onChange={(event) => setEmailAddress(event.target.value)}
             ></input>
@@ -58,15 +59,17 @@ const EmailAndPassword = ({
             <input
               name="password"
               type="password"
-              className="p-2 rounded-xl border-solid border-2 border-gray-500"
+              placeholder="Your password"
+              className="py-3 rounded-xl border-solid border-2 border-gray-850 px-4"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
             ></input>
           </div>
           <p className="text-red-600 font-semibold h-12">{errorMessage}</p>
-          <div className="w-full flex flex-row justify-end ">
+          <div className="w-full">
             <Button
               variant="primary"
+              isFullSize
               onClick={(event) => {
                 event.preventDefault();
                 nextStep();
@@ -134,8 +137,8 @@ export default function AuthLogin() {
   return (
     <div className="">
       <NavbarLoggedOut />
-      <div className="flex flex-col justify-center items-center pt-12">
-        <h2 className="font-bold text-xl">Sign up to Parkinson's Pulse</h2>
+      <div className="flex flex-col justify-center items-center pt-16 gap-8">
+        <h2 className="font-extrabold text-2xl text-gray-200">Log in to Parkinson's Pulse</h2>
         {(() => {
           switch (step) {
             case 'email-and-password': {

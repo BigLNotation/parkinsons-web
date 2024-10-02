@@ -13,9 +13,9 @@ type NavbarProps = {
 
 const variants = {
   patient:
-    'h-[70px] w-full sticky top-0 bg-teal-100 border-b-2 border-teal-500',
+    'h-[70px] w-full sticky top-0 bg-teal-100 border-b-2 border-teal-500 z-50',
   caregiver:
-    'h-[70px] w-full sticky top-0 bg-teal-100 border-b-2 border-teal-500',
+    'h-[70px] w-full sticky top-0 bg-teal-100 border-b-2 border-teal-500 z-50',
 };
 
 function Navbar({
@@ -29,13 +29,15 @@ function Navbar({
     <header className={variants[variant]}>
       <div className="h-full w-full flex justify-between items-center overflow-hidden">
         {/* Left side */}
-          <div className="px-8 flex gap-8 items-center">
+          <div className="px-8 flex gap-12 items-center">
               <div className="flex gap-4 items-center">
-                  <div className="w-[25px] h-[25px] bg-teal-800 rounded-full">
+                  <img className="w-[35px] h-[35px]" src="/brand/parkinsonspulse_icon-LIGHT2.png" alt="">
 
-                  </div>
+                  </img>
 
-                  <a className="flex gap-4 justify-between items-end leading-3" href="/dashboard/home">
+                  <a className="flex gap-4 justify-between items-end leading-3"
+                     href={variant === "patient" ? "/dashboard/patients/home" : "/dashboard/caregivers/home"}>
+
                       {/* Logo placeholder here */}
                       <p className="font-semibold text-white text-lg leading-4">
                           Parkinson&apos;s Pulse
