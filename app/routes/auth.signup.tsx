@@ -312,7 +312,11 @@ export default function AuthSignup() {
         password,
       }),
     });
-    navigate('/dashboard');
+    const isPatient = loginRes.data.is_patient;
+    const redirectLink = isPatient
+      ? '/dashboard/patient'
+      : '/dashboard/caregivers';
+    navigate(redirectLink);
   };
 
   return (

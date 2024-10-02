@@ -124,7 +124,11 @@ export default function AuthLogin() {
       setErrorMessage('We were unable to sign you into your account');
       return;
     }
-    navigate('/dashboard');
+    const isPatient = loginRes.data.is_patient;
+    const redirectLink = isPatient
+      ? '/dashboard/patient'
+      : '/dashboard/caregivers';
+    navigate(redirectLink);
   };
 
   return (
