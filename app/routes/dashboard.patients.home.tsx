@@ -8,6 +8,7 @@ import Button from "~/components/ui/Button";
 import HistoryList from "~/components/history/HistoryList";
 import MoodForm from "~/components/dashboards/MoodForm";
 import QuickAccess from "~/components/dashboards/QuickAccess";
+import SymptomGraphLine from "~/components/progress/SymptomGraphLine";
 
 /* We are demoing several interface variants and this is the fastest way to make it work. If you hate it, I'm sorry. */
 
@@ -49,8 +50,8 @@ export default function DashboardPatientsHome({variant}: PatientsDashboardProps)
                       <h3 className="font-bold text-gray-200 text-xl">Your symptoms over time</h3>
                       <Button variant="text" as="a" href="./progress">View more</Button>
                   </div>
-                  <div className="py-6">
-                      Insert graph here (TBD)
+                  <div className="w-full py-6 h-[500px]">
+                      <SymptomGraphLine/>
                   </div>
 
               </DashboardModule>

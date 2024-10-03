@@ -44,7 +44,7 @@ export default function DashboardPatients() {
             }
 
             {isAccessibilityModalOpen &&
-                <div className="fixed top-0 w-full h-full" >
+                <div className="z-[100] fixed top-0 w-full h-full" >
                     <AccessibilityModal/>
                     <div className="absolute h-full w-full bg-teal-100 opacity-50" onClick={() => toggleAccessibilityModal()}>
 

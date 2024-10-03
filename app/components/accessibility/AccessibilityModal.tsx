@@ -39,7 +39,7 @@ function AccessibilityModal() {
     return (
         <div
             // This is div centering madness.
-            className="absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-980 rounded-2xl px-9 py-8 flex flex-col gap-6 w-[95%] max-w-[650px] text-gray-200">
+            className="absolute z-[100] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-980 rounded-2xl px-9 py-8 flex flex-col gap-6 w-[95%] max-w-[650px] text-gray-200">
             <p className="text-2xl font-extrabold text-gray-200">Accessibility</p>
             <p className="font-semibold">
                 The following options allow you to change the sizes of text, buttons, and other elements on the
