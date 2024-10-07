@@ -18,7 +18,7 @@ type PatientsDashboardProps = {
 
 export default function DashboardPatientsHome({variant}: PatientsDashboardProps) {
   return (
-      <div className="py-12 px-16 flex-1">
+      <div className="py-12 px-6 lg:px-16 flex-1">
         <h1 className="font-extrabold text-gray-200 text-3xl">
             {/*TODO replace with account name*/}
             Kia ora, Chris!

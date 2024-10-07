@@ -1,5 +1,6 @@
 import { useNavigate } from '@remix-run/react';
 import Button from '~/components/ui/Button';
+import React from "react";
 
 function NavbarLoggedOut() {
   const navigate = useNavigate();
@@ -9,9 +10,10 @@ function NavbarLoggedOut() {
       <div className="h-full w-[80%] min-w-[800px] max-w-[1400px] my-0 mx-auto flex justify-between items-center overflow-hidden">
         {/* Left side */}
         <div className="">
-          <div className="flex gap-5 items-center">
-            <div className="w-[30px] h-[30px] bg-teal-800 rounded-full"></div>
+          <div className="flex gap-4 items-center">
+            <img className="w-[35px] h-[35px]" src="/brand/parkinsonspulse_icon-LIGHT2.png" alt="">
 
+            </img>
             <div className="flex gap-4 justify-between items-end leading-3">
               {/* Logo placeholder here */}
               <p className="font-semibold text-teal-300 text-[19px] leading-4">

@@ -7,10 +7,19 @@ import Notice from "~/components/layout/Notice";
 import DashboardModule from "~/components/dashboards/DashboardModule";
 import SymptomGraphLine from "~/components/progress/SymptomGraphLine";
 import SymptomGraphPie from "~/components/progress/SymptomGraphPie";
+import Button from "~/components/ui/Button";
+import React from "react";
 
 export default function DashboardPatientsProgress() {
   return (
-      <div className="py-12 px-16 flex-1 flex flex-col gap-8">
+      <div className="py-12 px-6 lg:px-16 flex-1 flex flex-col gap-8">
+
+          <div className="md:hidden">
+              <Button variant="tertiary" as="a" href="/dashboard/patients/home">
+                  Back
+              </Button>
+          </div>
+
           <h1 className="font-extrabold text-gray-200 text-3xl">
               Your progress
           </h1>
@@ -55,9 +64,8 @@ export default function DashboardPatientsProgress() {
           </Notice>
 
           <Notice variant="error" title="AAA">
-             HOW THE #%*$?! do I make these graphs WORK in a way that is RESPONSIVE???
+              HOW THE #%*$?! do I make these graphs WORK in a way that is RESPONSIVE???
           </Notice>
-
 
 
       </div>

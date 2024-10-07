@@ -6,10 +6,10 @@ type SidebarProps = {
 }
 
 const variants = {
-    "patient": "w-[300px] h-[calc(100vh-70px)] bg-[#E1F7F3] sticky top-[70px] left-0 hidden md:block z-40",
+    "patient": "w-[320px] h-[calc(100vh-70px)] bg-[#E1F7F3] sticky top-[70px] left-0 hidden md:block z-40",
 
     //TODO finish caregiver variant
-    "caregiver": "w-[300px] h-[calc(100vh-70px)] bg-[#E1F7F3] sticky top-[70px] left-0 z-40",
+    "caregiver": "w-[320px] h-[calc(100vh-70px)] bg-[#E1F7F3] sticky top-[70px] left-0 z-40",
 }
 
 function Sidebar({variant}: SidebarProps) {
@@ -21,10 +21,16 @@ function Sidebar({variant}: SidebarProps) {
                     {/* Hide some tabs for caregivers */}
                     {variant === "patient" &&
                         <div className="w-full flex flex-col gap-2">
-                            <SidebarButton icon="/icons/sidebarDashboard.svg" to="/dashboard/patients/home">Dashboard</SidebarButton>
-                            <SidebarButton icon="/icons/sidebarSymptoms.svg" to="/dashboard/patients/symptoms">Symptoms</SidebarButton>
-                            <SidebarButton icon="/icons/sidebarProgress.svg" to="/dashboard/patients/progress">Progress</SidebarButton>
-                            <SidebarButton icon="/icons/sidebarHistory.svg" to="/dashboard/patients/history">History</SidebarButton>
+                            <SidebarButton icon="/icons/sidebarDashboard.svg" to="/dashboard/patients/home"
+                            subtitle="An overview of it all">Dashboard</SidebarButton>
+                            <SidebarButton icon="/icons/sidebarSymptoms.svg" to="/dashboard/patients/symptoms"
+                                           subtitle="Track your symptoms.">Symptoms</SidebarButton>
+                            <SidebarButton icon="/icons/sidebarProgress.svg" to="/dashboard/patients/progress"
+                                           subtitle="Statistics and charts.">Progress</SidebarButton>
+                            <SidebarButton icon="/icons/sidebarHistory.svg" to="/dashboard/patients/history"
+                                           subtitle="See previous forms.">History</SidebarButton>
+                            <SidebarButton icon="/icons/sidebarSymptoms.svg" to="/dashboard/patients/medications"
+                                           subtitle="Track medications.">Medications</SidebarButton>
                         </div>
                     }
                     {variant === "caregiver" &&
