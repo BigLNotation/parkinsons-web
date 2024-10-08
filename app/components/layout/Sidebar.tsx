@@ -72,7 +72,7 @@ function Sidebar({variant}: SidebarProps) {
 
                 {/*Lower section (e.g. help)*/}
                 <div>
-                    <Button variant="secondary" as="a" href="https://www.parkinsons.org.nz/">
+                    <Button variant="secondary" as="a" href="/help">
                         <p className="font-bold leading-5 text-center">Got a question?</p>
                         <p className="font-normal leading-5 text-center">Visit the help center  →</p>
                     </Button>
