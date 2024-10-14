@@ -54,7 +54,7 @@ export default function DashboardPatientsSymptoms() {
                             </div>
                             <div className="pt-8">
                                 <Button variant="tertiary"
-                                        onClick={() => alert("This button is currently nonfunctional.")}>Add
+                                        as={"a"} href="/dashboard/patients/symptoms/add">Add
                                     a new symptom</Button>
                             </div>
                         </>
