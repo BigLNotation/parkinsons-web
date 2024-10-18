@@ -9,6 +9,7 @@ import DashboardModule from "~/components/dashboards/DashboardModule";
 import SymptomGrid from "~/components/symptoms/SymptomGrid";
 import SymptomForm from "~/components/symptoms/form/SymptomForm";
 import Button from "~/components/ui/Button";
+import AddSymptomModal from "~/components/symptoms/AddSymptom";
 
 /*
 Conditionally renders a SymptomForm component based on the displayForm state.
@@ -19,10 +20,15 @@ This may cause issues idk.
 
 export default function DashboardPatientsSymptoms() {
 
-    const [displayForm, setDisplayForm] = React.useState("")
+    const [displayForm, setDisplayForm] = React.useState("");
+    const [displayAddSymptom, setDisplayAddSymptom] = React.useState(false);
 
     function handleSymptomClick(symptom){
         setDisplayForm(symptom);
+    }
+
+    function toggleAddSymptomModal(){
+        setDisplayAddSymptom(!displayAddSymptom);
     }
 
     return (
@@ -54,7 +60,7 @@ export default function DashboardPatientsSymptoms() {
                             </div>
                             <div className="pt-8">
                                 <Button variant="tertiary"
-                                        as={"a"} href="/dashboard/patients/symptoms/add">Add
+                                        onClick={toggleAddSymptomModal}>Add
                                     a new symptom</Button>
                             </div>
                         </>
@@ -62,6 +68,14 @@ export default function DashboardPatientsSymptoms() {
                 </div>
 
             </DashboardModule>
-        </div>
-    );
+            {displayAddSymptom &&
+                <>
+                    <AddSymptomModal toggleAddSymptomModal={toggleAddSymptomModal}/>
+                    <div className="fixed h-screen w-screen left-0 top-0 bg-teal-100 opacity-50 z-[100]" onClick={toggleAddSymptomModal}>
+                    </div>
+                </>
+            }
+    </div>
+)
+    ;
 }
