@@ -27,7 +27,7 @@ function Navbar({
   const { data } = useUserInformation();
   return (
     <header className={variants[variant]}>
-      <div className="h-full w-full flex justify-between items-center overflow-hidden">
+      <div className="h-full w-full flex justify-between items-center">
         {/* Left side */}
           <div className="px-8 flex gap-12 items-center">
               <div className="flex gap-4 items-center">
@@ -60,7 +60,7 @@ function Navbar({
 
         {/* Right side */}
 
-        <div className="hidden md:block">
+        <div className="hidden md:block relative">
           {/*
                   TODO make this functional based on the user lol
                   Right now it's just creating and passing a fake placeholder user object depending
