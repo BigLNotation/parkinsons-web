@@ -129,7 +129,7 @@ export default function AuthLogin() {
     }
     const isPatient = loginRes.data.is_patient;
     const redirectLink = isPatient
-      ? '/dashboard/patient'
+      ? '/dashboard/patients'
       : '/dashboard/caregivers';
     navigate(redirectLink);
   };
@@ -138,7 +138,9 @@ export default function AuthLogin() {
     <div className="">
       <NavbarLoggedOut />
       <div className="flex flex-col justify-center items-center pt-16 gap-8">
-        <h2 className="font-extrabold text-2xl text-gray-200">Log in to Parkinson's Pulse</h2>
+        <h2 className="font-extrabold text-2xl text-gray-200">
+          Log in to Parkinson's Pulse
+        </h2>
         {(() => {
           switch (step) {
             case 'email-and-password': {
