@@ -200,32 +200,29 @@ const RoleSelection = ({
         </h3>
         <div className="flex flex-col lg:flex-row gap-8">
           <button
-              onClick={() => setRoleSelected('patient')}
-              className="rounded-xl px-10 py-16 bg-teal-850 flex flex-col gap-4 justify-center items-center font-bold text-gray-400"
+            onClick={() => setRoleSelected('patient')}
+            className="rounded-xl px-10 py-16 bg-teal-850 flex flex-col gap-4 justify-center items-center font-bold text-gray-400"
           >
-            <span
-                className="bg-purple-600 rounded-full w-[150px] aspect-square flex flex-col justify-center items-center">
+            <span className="bg-purple-600 rounded-full w-[150px] aspect-square flex flex-col justify-center items-center">
               <img
-                  width={100}
-                  src="/icons/person-icon.svg"
-                  alt=""
+                width={100}
+                src="/icons/person-icon.svg"
+                alt=""
               />
             </span>
             <p className="text-purple-300 text-lg font-bold  w-[200px] leading-6">
               I'm living with Parkinson's
             </p>
-
           </button>
           <button
-              className="rounded-xl px-10 py-16 bg-teal-850 flex flex-col gap-4 justify-center items-center font-bold text-gray-400"
-              onClick={() => setRoleSelected('caregiver')}
+            className="rounded-xl px-10 py-16 bg-teal-850 flex flex-col gap-4 justify-center items-center font-bold text-gray-400"
+            onClick={() => setRoleSelected('caregiver')}
           >
-            <span
-                className="bg-purple-600 rounded-full w-[150px] aspect-square flex flex-col justify-center items-center">
+            <span className="bg-purple-600 rounded-full w-[150px] aspect-square flex flex-col justify-center items-center">
               <img
-                  width={200}
-                  src="/icons/bingud.png"
-                  alt=""
+                width={200}
+                src="/icons/bingud.png"
+                alt=""
               />
             </span>
             <p className="text-purple-300 text-lg font-bold w-[200px] leading-6">
@@ -234,7 +231,8 @@ const RoleSelection = ({
           </button>
         </div>
         <p className="text-sm text-gray-500 font-inter">
-          Next week's winning Lotto numbers: 1, 12, 14, 29, 31, 35, with a Powerball of 2.
+          Next week's winning Lotto numbers: 1, 12, 14, 29, 31, 35, with a
+          Powerball of 2.
         </p>
       </div>
     </div>
@@ -330,7 +328,7 @@ export default function AuthSignup() {
     });
     const isPatient = loginRes.data.is_patient;
     const redirectLink = isPatient
-      ? '/dashboard/patient'
+      ? '/dashboard/patients'
       : '/dashboard/caregivers';
     navigate(redirectLink);
   };
@@ -339,7 +337,9 @@ export default function AuthSignup() {
     <div className="">
       <NavbarLoggedOut />
       <div className="flex flex-col justify-center items-center pt-16 gap-8">
-        <h2 className="font-extrabold text-2xl text-gray-200">Sign up to Parkinson's Pulse</h2>
+        <h2 className="font-extrabold text-2xl text-gray-200">
+          Sign up to Parkinson's Pulse
+        </h2>
         {(() => {
           switch (step) {
             case 'role-select': {

@@ -16,6 +16,7 @@ const useUserInformation = () =>
           $oid: string;
         };
         email_address: string;
+        is_patient: boolean;
       };
     },
   });
