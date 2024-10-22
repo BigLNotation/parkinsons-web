@@ -2,8 +2,18 @@
 the boxes for symptom selecting
  */
 
-import Button from "~/components/ui/Button"
+import Button from "~/components/ui/Button";
 import React from "react";
+import depressionIcon from "app/components/symptoms/icons/Depression.png";
+import insomniaIcon from "app/components/symptoms/icons/Insomnia.png";
+import posturalIcon from "app/components/symptoms/icons/Postural_Instability.png";
+import bradyIcon from "app/components/symptoms/icons/Slowed_Movement.png";
+import tremorIcon from "app/components/symptoms/icons/Tremor.png";
+import rigidityIcon from "app/components/symptoms/icons/Muscle_Rigidity_2.png";
+import anxietyIcon from "app/components/symptoms/icons/Anxiety.png";
+import apathyIcon from "app/components/symptoms/icons/Apathy.png";
+import REMIcon from "app/components/symptoms/icons/REM_Sleep_Disorder.png";
+import fatigueIcon from "app/components/symptoms/icons/Fatigue.png";
 
 // Currently designed to function as a button controlling state, can be modified to link to a seperate page for the form if we wanted.
 
@@ -14,6 +24,20 @@ type SymptomCardProps = React.HTMLAttributes<HTMLButtonElement> & {
     recentlyCompleted: boolean,
     //link?: string,
 }
+
+const symptomIcons = {
+    "Tremors": tremorIcon,
+    "Rigidity":rigidityIcon,
+    "Bradykinesia": bradyIcon,
+    "Postural Instability": posturalIcon,
+    "Anxiety": anxietyIcon,
+    "Apathy": apathyIcon,
+    "REM Sleep Disorder": REMIcon,
+    "Fatigue":fatigueIcon,
+    "Depression": depressionIcon,
+    "Insomnia": insomniaIcon,
+
+};
 
 const variants = {
     normal: "bg-gray-950 py-6 px-8 rounded-2xl hover:bg-purple-950 transition duration-200",
@@ -31,7 +55,14 @@ function SymptomCard({symptom, desc, status, recentlyCompleted, ...other}: Sympt
             <div className="flex gap-8 items-center justify-between ">
 
                 {/*TODO Put icons here*/}
-                <div className="w-[70px] h-[70px] bg-gray-500 rounded-full"></div>
+                <div className="w-[70px] h-[70px] flex items-center justify-center rounded-full bg-white">
+                    <img 
+                        src={symptomIcons[symptom] || "fallback-icon.png"} 
+                        alt={`${symptom} icon`} 
+                        className="w-[50px] h-[50px]"
+                    />
+                </div>
+                
 
                 <div className="w-[220px] flex flex-col gap-5 text-left">
                     <div className="flex flex-col gap-2">
