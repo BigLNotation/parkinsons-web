@@ -1,9 +1,9 @@
-import { Navigate, useNavigate } from '@remix-run/react';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import Navbar from '~/components/layout/Navbar';
-import NavbarLoggedOut from '~/components/layout/NavbarLoggedOut';
-import Button from '~/components/ui/Button';
+import { Navigate, useNavigate } from "@remix-run/react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Navbar from "~/components/layout/Navbar";
+import NavbarLoggedOut from "~/components/layout/NavbarLoggedOut";
+import Button from "~/components/ui/Button";
 
 const EmailAndPassword = ({
   password,
@@ -85,16 +85,16 @@ const EmailAndPassword = ({
 };
 
 export default function AuthLogin() {
-  const [emailAddress, setEmailAddress] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [emailAddress, setEmailAddress] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
-  const [errorMessage, setErrorMessage] = useState<string | undefined>('');
+  const [errorMessage, setErrorMessage] = useState<string | undefined>("");
 
-  const [step, setStep] = useState<'email-and-password'>('email-and-password');
+  const [step, setStep] = useState<"email-and-password">("email-and-password");
 
   const nextStep = async () => {
     switch (step) {
-      case 'email-and-password': {
+      case "email-and-password": {
         if (!emailAddress || !password) {
           return;
         }
@@ -107,15 +107,15 @@ export default function AuthLogin() {
 
   const submitForm = async (emailAddress: string, password: string) => {
     await axios({
-      method: 'PATCH',
-      url: 'http://localhost:4444/auth/logout',
+      method: "PATCH",
+      url: `${import.meta.env.VITE_API_URL}/auth/logout`,
       withCredentials: true,
     });
     const loginRes = await axios({
-      method: 'POST',
-      url: 'http://localhost:4444/auth/login',
+      method: "POST",
+      url: `${import.meta.env.VITE_API_URL}/auth/login`,
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       withCredentials: true,
       data: JSON.stringify({
@@ -124,13 +124,13 @@ export default function AuthLogin() {
       }),
     });
     if (loginRes.status !== 200) {
-      setErrorMessage('We were unable to sign you into your account');
+      setErrorMessage("We were unable to sign you into your account");
       return;
     }
     const isPatient = loginRes.data.is_patient;
     const redirectLink = isPatient
-      ? '/dashboard/patients'
-      : '/dashboard/caregivers';
+      ? "/dashboard/patients"
+      : "/dashboard/caregivers";
     navigate(redirectLink);
   };
 
@@ -143,7 +143,7 @@ export default function AuthLogin() {
         </h2>
         {(() => {
           switch (step) {
-            case 'email-and-password': {
+            case "email-and-password": {
               return (
                 <EmailAndPassword
                   password={password}

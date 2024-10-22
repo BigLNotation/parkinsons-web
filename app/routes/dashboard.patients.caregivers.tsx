@@ -2,13 +2,13 @@
 adding symptoms modal
  */
 
-import { useEffect, useState } from 'react';
-import { useNavigate } from '@remix-run/react';
+import { useEffect, useState } from "react";
+import { useNavigate } from "@remix-run/react";
 
-import Button from '~/components/ui/Button';
-import useCaregiverList from '~/components/hooks/use-caregiver-list';
-import CaregiverCard from '~/components/caregivers/CaregiverCard';
-import axios from 'axios';
+import Button from "~/components/ui/Button";
+import useCaregiverList from "~/components/hooks/use-caregiver-list";
+import CaregiverCard from "~/components/caregivers/CaregiverCard";
+import axios from "axios";
 
 function ManageCaregivers() {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ function ManageCaregivers() {
 
   const deleteCaregiver = async (id: { $oid: string }) => {
     const res = await axios({
-      url: `http://localhost:4444/caregiver/remove/${id.$oid}`,
+      url: `${import.meta.env.VITE_API_URL}/caregiver/remove${id.$oid}`,
       withCredentials: true,
     });
   };
@@ -38,8 +38,8 @@ function ManageCaregivers() {
       <div className="flex gap-2 mt-4">
         {/*TODO saving and submit functionality*/}
         <Button
-          variant={'tertiary'}
-          onClick={() => navigate('/dashboard/patients/symptoms')}
+          variant={"tertiary"}
+          onClick={() => navigate("/dashboard/patients/symptoms")}
         >
           Cancel
         </Button>

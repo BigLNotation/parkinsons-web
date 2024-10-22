@@ -1,9 +1,9 @@
-import { Navigate, useNavigate } from '@remix-run/react';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import Navbar from '~/components/layout/Navbar';
-import NavbarLoggedOut from '~/components/layout/NavbarLoggedOut';
-import Button from '~/components/ui/Button';
+import { Navigate, useNavigate } from "@remix-run/react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Navbar from "~/components/layout/Navbar";
+import NavbarLoggedOut from "~/components/layout/NavbarLoggedOut";
+import Button from "~/components/ui/Button";
 
 const NameInfo = ({
   firstName,
@@ -168,7 +168,7 @@ const EmailAndPassword = ({
               onClick={(event) => {
                 event.preventDefault();
                 if (password != confirmPassword) {
-                  setErrorMessage('Passwords do not match');
+                  setErrorMessage("Passwords do not match");
                   return;
                 }
                 nextStep();
@@ -187,7 +187,7 @@ const RoleSelection = ({
   setRoleSelected,
 }: {
   setRoleSelected: (
-    newRoleSelected: 'patient' | 'caregiver' | undefined
+    newRoleSelected: "patient" | "caregiver" | undefined
   ) => void;
   errorMessage: string | undefined;
   setErrorMessage: (newErrorMessage: string | undefined) => void;
@@ -200,15 +200,11 @@ const RoleSelection = ({
         </h3>
         <div className="flex flex-col lg:flex-row gap-8">
           <button
-            onClick={() => setRoleSelected('patient')}
+            onClick={() => setRoleSelected("patient")}
             className="rounded-xl px-10 py-16 bg-teal-850 flex flex-col gap-4 justify-center items-center font-bold text-gray-400"
           >
             <span className="bg-purple-600 rounded-full w-[150px] aspect-square flex flex-col justify-center items-center">
-              <img
-                width={100}
-                src="/icons/person-icon.svg"
-                alt=""
-              />
+              <img width={100} src="/icons/person-icon.svg" alt="" />
             </span>
             <p className="text-purple-300 text-lg font-bold  w-[200px] leading-6">
               I'm living with Parkinson's
@@ -216,14 +212,10 @@ const RoleSelection = ({
           </button>
           <button
             className="rounded-xl px-10 py-16 bg-teal-850 flex flex-col gap-4 justify-center items-center font-bold text-gray-400"
-            onClick={() => setRoleSelected('caregiver')}
+            onClick={() => setRoleSelected("caregiver")}
           >
             <span className="bg-purple-600 rounded-full w-[150px] aspect-square flex flex-col justify-center items-center">
-              <img
-                width={200}
-                src="/icons/bingud.png"
-                alt=""
-              />
+              <img width={200} src="/icons/bingud.png" alt="" />
             </span>
             <p className="text-purple-300 text-lg font-bold w-[200px] leading-6">
               I'm a nurse, doctor, or caregiver
@@ -240,35 +232,35 @@ const RoleSelection = ({
 };
 
 export default function AuthSignup() {
-  const [emailAddress, setEmailAddress] = useState<string>('');
-  const [confirmPassword, setConfirmPassword] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [emailAddress, setEmailAddress] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
-  const [firstName, setFirstName] = useState<string>('');
-  const [lastName, setLastName] = useState<string>('');
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
 
-  const [errorMessage, setErrorMessage] = useState<string | undefined>('');
+  const [errorMessage, setErrorMessage] = useState<string | undefined>("");
 
   const [roleSelected, setRoleSelected] = useState<
-    'patient' | 'caregiver' | undefined
+    "patient" | "caregiver" | undefined
   >();
 
   const [step, setStep] = useState<
-    'role-select' | 'email-and-password' | 'name-info'
-  >('role-select');
+    "role-select" | "email-and-password" | "name-info"
+  >("role-select");
 
   const nextStep = async () => {
     switch (step) {
-      case 'role-select': {
-        setStep('email-and-password');
+      case "role-select": {
+        setStep("email-and-password");
       }
-      case 'email-and-password': {
+      case "email-and-password": {
         if (!emailAddress || !password) {
           return;
         }
-        setStep('name-info');
+        setStep("name-info");
       }
-      case 'name-info': {
+      case "name-info": {
         if (!firstName || !lastName) return;
         await submitForm(
           firstName,
@@ -288,18 +280,18 @@ export default function AuthSignup() {
     lastName: string,
     emailAddress: string,
     password: string,
-    role: 'patient' | 'caregiver'
+    role: "patient" | "caregiver"
   ) => {
     await axios({
-      method: 'PATCH',
-      url: 'http://localhost:4444/auth/logout',
+      method: "PATCH",
+      url: `${import.meta.env.VITE_API_URL}/auth/logout`,
       withCredentials: true,
     });
     const createRes = await axios({
-      method: 'POST',
-      url: 'http://localhost:4444/auth/create',
+      method: "POST",
+      url: `${import.meta.env.VITE_API_URL}/auth/create`,
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       withCredentials: true,
       data: JSON.stringify({
@@ -307,18 +299,18 @@ export default function AuthSignup() {
         last_name: lastName,
         email_address: emailAddress,
         password,
-        is_patient: role == 'patient',
+        is_patient: role == "patient",
       }),
     });
     if (createRes.status !== 200) {
-      setErrorMessage('We were unable to create your account');
+      setErrorMessage("We were unable to create your account");
       return;
     }
     const loginRes = await axios({
-      method: 'POST',
-      url: 'http://localhost:4444/auth/login',
+      method: "POST",
+      url: `${import.meta.env.VITE_API_URL}/auth/login`,
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       withCredentials: true,
       data: JSON.stringify({
@@ -328,8 +320,8 @@ export default function AuthSignup() {
     });
     const isPatient = loginRes.data.is_patient;
     const redirectLink = isPatient
-      ? '/dashboard/patients'
-      : '/dashboard/caregivers';
+      ? "/dashboard/patients"
+      : "/dashboard/caregivers";
     navigate(redirectLink);
   };
 
@@ -342,7 +334,7 @@ export default function AuthSignup() {
         </h2>
         {(() => {
           switch (step) {
-            case 'role-select': {
+            case "role-select": {
               return (
                 <RoleSelection
                   setRoleSelected={(...any) => {
@@ -354,7 +346,7 @@ export default function AuthSignup() {
                 />
               );
             }
-            case 'email-and-password': {
+            case "email-and-password": {
               return (
                 <EmailAndPassword
                   password={password}
@@ -369,7 +361,7 @@ export default function AuthSignup() {
                 />
               );
             }
-            case 'name-info': {
+            case "name-info": {
               return (
                 <NameInfo
                   firstName={firstName}

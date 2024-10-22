@@ -1,8 +1,4 @@
-import {
-  LoaderFunction,
-  LoaderFunctionArgs,
-  json,
-} from "@netlify/remix-runtime";
+import { LoaderFunction, LoaderFunctionArgs, json } from "@remix-run/node";
 
 export const loader: LoaderFunction = async ({ params }) => {
   // Fetch and return the layout and structure of the form

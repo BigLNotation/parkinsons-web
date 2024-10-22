@@ -1,12 +1,12 @@
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const useUserInformation = () =>
   useQuery({
-    queryKey: ['user-info'],
+    queryKey: ["user-info"],
     queryFn: async () => {
       const res = await axios({
-        url: 'http://localhost:4444/auth/info',
+        url: `${import.meta.env.VITE_API_URL}/auth/info`,
         withCredentials: true,
       });
       return (await res.data) as {

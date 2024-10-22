@@ -1,12 +1,12 @@
-import { useMutation, useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import { useMutation, useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 const useCaregiverList = () =>
   useQuery({
-    queryKey: ['caregiver-list'],
+    queryKey: ["caregiver-list"],
     queryFn: async () => {
       const res = await axios({
-        url: 'http://localhost:4444/caregiver/list',
+        url: `${import.meta.env.VITE_API_URL}/caregiver/list`,
         withCredentials: true,
       });
       return (await res.data) as {
@@ -20,9 +20,9 @@ const useCaregiverList = () =>
     },
   });
 
-const removeCaregiverMutation = useMutation({
-  mutationFn: async (id: { $oid: string }) => {
-    await axios({});
-  },
-});
+// const removeCaregiverMutation = useMutation({
+//   mutationFn: async (id: { $oid: string }) => {
+//     await axios({});
+//   },
+// });
 export default useCaregiverList;

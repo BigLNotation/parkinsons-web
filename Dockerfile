@@ -23,11 +23,14 @@ RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3
 
 # Install node modules
-COPY package-lock.json package.json yarn.lock ./
+COPY package.json yarn.lock ./
 RUN yarn install --frozen-lockfile --production=false
 
 # Copy application code
 COPY . .
+
+# Set API URL
+ENV VITE_API_URL="https://api.parky.xandermcleod.com"
 
 # Build application
 RUN yarn run build
@@ -43,5 +46,5 @@ FROM base
 COPY --from=build /app /app
 
 # Start the server by default, this can be overwritten at runtime
-EXPOSE 5173
+EXPOSE 3000
 CMD [ "yarn", "run", "start" ]
