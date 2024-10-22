@@ -2,7 +2,7 @@ import {
   LoaderFunction,
   LoaderFunctionArgs,
   json,
-} from "@netlify/remix-adapter";
+} from "@netlify/remix-runtime";
 
 export const loader: LoaderFunction = async ({ params }) => {
   // Fetch and return the layout and structure of the form
