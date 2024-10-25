@@ -91,7 +91,7 @@ function AddSymptom() {
     if (res.status != 200) {
       return;
     }
-    navigate("/dashboard/patients/symptoms");
+    navigate(-1);
   };
 
   const handleDeleteQuestion = (index: number) => {
@@ -385,10 +385,7 @@ function AddSymptom() {
         <Button variant={"primary"} onClick={handleCreateForm}>
           Create
         </Button>
-        <Button
-          variant={"tertiary"}
-          onClick={() => navigate("/dashboard/patients/symptoms")}
-        >
+        <Button variant={"tertiary"} onClick={() => navigate(-1)}>
           Cancel
         </Button>
       </div>
