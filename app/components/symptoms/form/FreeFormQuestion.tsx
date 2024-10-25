@@ -7,6 +7,7 @@ interface QuestionProps {
   min: number;
   max: number;
   value: string;
+  disabled?: boolean;
   setValue: (newValue: string) => void;
 }
 
@@ -16,6 +17,7 @@ const FreeFormQuestion: React.FC<QuestionProps> = ({
   max,
   value,
   setValue,
+  disabled = false,
 }) => {
   const id = `question-${title}`;
 
@@ -28,6 +30,7 @@ const FreeFormQuestion: React.FC<QuestionProps> = ({
         className="p-4 outline outline-2 outline-black/50 rounded-md text-md min-h-32 flex flex-col justify-start"
         maxLength={max}
         minLength={min}
+        disabled={disabled}
         value={value}
         name={id}
         onChange={(e) => setValue(e.target.value)}

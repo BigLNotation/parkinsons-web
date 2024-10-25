@@ -3,6 +3,7 @@ import React from "react";
 import RangeSlider from "~/components/symptoms/form/RangeSlider";
 
 interface QuestionProps {
+  disabled?: boolean;
   title: string;
   minSelected: number;
   maxSelected: number;
@@ -24,6 +25,7 @@ const MultichoiceQuestion: React.FC<QuestionProps> = ({
   maxSelected,
   value,
   options,
+  disabled = false,
   setValue,
 }) => {
   const id = `question-${title}`;
@@ -39,10 +41,11 @@ const MultichoiceQuestion: React.FC<QuestionProps> = ({
             <label className="text-md">{element.name}</label>
             <input
               className="w-12 transition-all"
+              disabled={disabled}
               type="checkbox"
-              checked={value.includes(element.id)}
+              checked={value.map((x) => x.$oid).includes(element.id.$oid)}
               onChange={() => {
-                if (value.includes(element.id)) {
+                if (value.map((x) => x.$oid).includes(element.id.$oid)) {
                   setValue(value.filter((x) => x != element.id));
                 } else {
                   if (maxSelected == 1) {

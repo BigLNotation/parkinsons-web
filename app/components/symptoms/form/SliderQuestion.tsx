@@ -11,11 +11,13 @@ interface QuestionProps {
   sliderName: string;
   value: number;
   setValue: (newValue: number) => void;
+  disabled?: boolean;
 }
 
 const SliderQuestion: React.FC<QuestionProps> = ({
   text,
   answers,
+  disabled = false,
   min,
   max,
   step,
@@ -43,6 +45,7 @@ const SliderQuestion: React.FC<QuestionProps> = ({
         ))}
       </div>
       <RangeSlider
+        disabled={disabled}
         value={value}
         setValue={setValue}
         min={min}

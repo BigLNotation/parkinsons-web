@@ -10,6 +10,7 @@ interface RangeSliderProps {
   initialValue?: number;
   name: string;
   id: string;
+  disabled?: boolean;
   value: number;
   setValue: (newValue: number) => void;
 }
@@ -21,6 +22,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
   max,
   step,
   initialValue = min,
+  disabled = false,
   name,
   id,
 }) => {
@@ -56,6 +58,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
           min={min}
           max={max}
           step={step}
+          disabled={disabled}
           value={value}
           onChange={handleChange}
           className={styles.slider}
