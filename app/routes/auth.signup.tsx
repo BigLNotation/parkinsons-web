@@ -320,8 +320,8 @@ export default function AuthSignup() {
     });
     const isPatient = loginRes.data.is_patient;
     const redirectLink = isPatient
-      ? "/dashboard/patients"
-      : "/dashboard/caregivers";
+      ? "/dashboard/patients/home"
+      : "/dashboard/caregivers/home";
     navigate(redirectLink);
   };
 

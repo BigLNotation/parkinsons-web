@@ -1,7 +1,16 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
-const useCaregiverList = () =>
+interface Caregiver {
+  first_name: string;
+  last_name: string;
+  _id: {
+    $oid: string;
+  };
+  email_address: string;
+}
+
+export const useCaregiverList = () =>
   useQuery({
     queryKey: ["caregiver-list"],
     queryFn: async () => {
@@ -9,20 +18,37 @@ const useCaregiverList = () =>
         url: `${import.meta.env.VITE_API_URL}/caregiver/list`,
         withCredentials: true,
       });
-      return (await res.data) as {
-        first_name: string;
-        last_name: string;
-        _id: {
-          $oid: string;
-        };
-        email_address: string;
-      }[];
+      return (await res.data) as Caregiver[];
     },
   });
 
-// const removeCaregiverMutation = useMutation({
-//   mutationFn: async (id: { $oid: string }) => {
-//     await axios({});
-//   },
-// });
-export default useCaregiverList;
+export const removeCaregiverMutation = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (id: { $oid: string }) => {
+      await axios({
+        url: `${import.meta.env.VITE_API_URL}/caregiver/remove/${id.$oid}`,
+        withCredentials: true,
+        method: "DELETE",
+      });
+    },
+    onMutate: async (id: { $oid: string }) => {
+      await queryClient.cancelQueries({
+        queryKey: ["caregiver-list", id.$oid],
+      });
+      const previousCaregivers = queryClient.getQueryData(["caregiver-list"]);
+      queryClient.setQueryData(["caregiver-list"], (prev: Caregiver[]) =>
+        prev.filter((caregiver) => caregiver._id.$oid != id.$oid)
+      );
+      return { previousCaregivers };
+    },
+    onError: (err, id, context) => {
+      queryClient.setQueryData(["caregiver-list"], context?.previousCaregivers);
+    },
+    onSettled: async () => {
+      queryClient.invalidateQueries({
+        queryKey: ["caregiver-list"],
+      });
+    },
+  });
+};

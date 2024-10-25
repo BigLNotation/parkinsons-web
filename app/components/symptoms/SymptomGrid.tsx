@@ -2,10 +2,10 @@
 Grid of symptoms for symptom tracking page. Imports SymptomCard component in the same directory.
  */
 
-import React from "react"
+import React from "react";
 
 import SymptomCard from "~/components/symptoms/SymptomCard";
-import symptoms_array from "./symptom_data";
+import { useSymptomList } from "../hooks/use-symptom-list";
 
 // This might be useful later:
 // interface symptom {
@@ -16,25 +16,28 @@ import symptoms_array from "./symptom_data";
 //     route: string,
 //     category: string,
 // }
-
+//
 type SymptomGridProps = {
-    category: string,
-    handleSymptomClick: (string)=>void
+  handleSymptomClick: (id: { $oid: string }) => void;
+};
+
+function SymptomGrid({ handleSymptomClick }: SymptomGridProps) {
+  const { data } = useSymptomList();
+
+  return (
+    <div className="flex flex-wrap gap-8 py-4">
+      {data?.map((s) => (
+        <SymptomCard
+          title={s.title}
+          description={s.description}
+          status={s.status}
+          recentlyCompleted={s.recently_completed}
+          key={s.title}
+          formId={s.id}
+        />
+      ))}
+    </div>
+  );
 }
 
-function SymptomGrid({category, handleSymptomClick}: SymptomGridProps) {
-
-    // display by category i.e. motor/nonmotor
-    const displayed_symptoms = symptoms_array.filter((s) => s.category === category)
-
-    return(
-        <div className="flex flex-wrap gap-8 py-4">
-            {displayed_symptoms.map((s) =>
-                <SymptomCard symptom={s.symptom} desc={s.desc} status={s.status} recentlyCompleted={s.recentlyCompleted} key={s.symptom}
-                             onClick={() => handleSymptomClick(s.symptom)}/>
-            )}
-        </div>
-    )
-}
-
-export default SymptomGrid
+export default SymptomGrid;

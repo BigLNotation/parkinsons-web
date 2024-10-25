@@ -1,6 +1,8 @@
-import React from 'react';
-import Button from '~/components/ui/Button';
-import useUserInformation from '../hooks/use-user-information';
+import React from "react";
+import Button from "~/components/ui/Button";
+import useUserInformation from "../hooks/use-user-information";
+import axios from "axios";
+import { useNavigate } from "@remix-run/react";
 
 type NavbarProps = {
   // TODO make this functional
@@ -19,10 +21,21 @@ type NavbarProps = {
 // }
 
 function UserDropdown({ user }: NavbarProps) {
+  const navigate = useNavigate();
+
   const [dropdownVisible, setDropdownVisible] = React.useState(false);
 
   function dropdownHandler() {
     setDropdownVisible(!dropdownVisible);
+  }
+
+  async function handleSignout() {
+    const res = await axios({
+      url: `${import.meta.env.VITE_API_URL}/auth/logout`,
+      withCredentials: true,
+      method: "PATCH",
+    });
+    navigate("/auth/login");
   }
 
   return (
@@ -54,10 +67,7 @@ function UserDropdown({ user }: NavbarProps) {
           </div>
 
           <a href="/government-data-records/NZ/tax-fraud/confidential/cdi-cgn/2024-12-09/auckland-university-tax-evasion">
-            <img
-              src="/icons/down-arrow-1.svg"
-              alt=""
-            />
+            <img src="/icons/down-arrow-1.svg" alt="" />
           </a>
         </div>
       </button>
@@ -82,10 +92,7 @@ function UserDropdown({ user }: NavbarProps) {
                   Visit the help page
                 </a>
               </ul>
-              <Button
-                variant={'secondary'}
-                isFullSize
-              >
+              <Button onClick={handleSignout} variant={"secondary"} isFullSize>
                 Sign out
               </Button>
             </div>
