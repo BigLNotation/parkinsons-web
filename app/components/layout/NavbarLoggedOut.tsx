@@ -7,10 +7,10 @@ function NavbarLoggedOut() {
 
   return (
     <header className="h-[70px] w-screen sticky top-0 bg-teal-990 border-b-[3px] border-teal-800">
-      <div className="h-full w-[80%] min-w-[800px] max-w-[1400px] my-0 mx-auto flex justify-between items-center overflow-hidden">
+      <div className="h-full w-[80%] max-w-[1400px] my-0 mx-auto flex justify-between items-center overflow-hidden">
         {/* Left side */}
         <div className="">
-          <div className="flex gap-4 items-center">
+          <a className="flex gap-4 items-center transition duration-300 hover:scale-95 hover:duration-[200]" href="/">
             <img className="w-[35px] h-[35px]" src="/brand/parkinsonspulse_icon-LIGHT2.png" alt="">
 
             </img>
@@ -20,7 +20,7 @@ function NavbarLoggedOut() {
                 Parkinson&apos;s Pulse
               </p>
             </div>
-          </div>
+          </a>
         </div>
 
         {/* Right side */}

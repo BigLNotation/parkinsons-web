@@ -1,0 +1,146 @@
+.wrapper{
+    height: 100vh;
+    background-color: #e8fcf9;
+}
+
+.content{
+    width: clamp(800px, 80%, 1400px);
+    margin: 0 auto;
+    padding: 180px 0;
+
+    display: flex;
+}
+
+.heroLeft{
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+
+    flex: 1.1;
+}
+
+.subHeading{
+    color: #663399;
+    font-weight: 700;
+}
+
+.textHeading{
+    font-size: 52px;
+    font-weight: 900;
+
+    line-height: 1.1;
+}
+.textHeadingTop{
+    color: #06473c;
+}
+.textHeadingBottom{
+    color: #2e9e8c;
+}
+
+.textDesc{
+    width: 80%;
+
+    color: #5f5c70;
+    font-size:  19px;
+    font-weight: 600;
+    line-height: 1.4
+}
+
+.buttons{
+    display: flex;
+    gap: 24px;
+}
+
+.heroRight{
+    position: relative;
+    flex: 0.9;
+}
+
+.imageBox{
+    position: absolute;
+    right: -200px;
+    height: 550px;
+    width: 130%;
+
+    border-radius: 16px;
+    background-color: #66ccbb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 120%;
+    object-fit: cover;
+    object-position: left;
+}
+
+@media(max-width: 1440px){
+    .heroLeft{
+        flex: 1.5;
+    }
+    .heroRight{
+        flex: 0.5;
+        position: unset;
+    }
+    .imageBox{
+        width: 25%;
+        height: 450px;
+        right: -25px;
+    }
+}
+
+@media(max-width: 1024px){
+    .wrapper{
+        height: fit-content;
+    }
+    .content{
+        flex-direction: column;
+        gap: 64px;
+
+        width: 90%;
+        padding: 80px 0;
+    }
+    .heroLeft, .heroLeft p{
+        margin: 0 auto;
+        text-align: center;
+    }
+    .heroRight{
+        height: fit-content;
+        position: relative;
+    }
+    .buttons{
+        margin: 0 auto;
+        width: fit-content;
+    }
+    .imageBox{
+        width: 100%;
+    }
+}
+
+@media(max-width: 768px){
+    .textHeading{
+        font-size: 46px;
+    }
+    .buttons{
+        width: 75%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .heroRight{
+
+    }
+    .imageBox{
+        width: 100%;
+        height: 100%;
+        right: 0;
+    }
+
+}

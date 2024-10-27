@@ -201,7 +201,7 @@ const RoleSelection = ({
         <div className="flex flex-col lg:flex-row gap-8">
           <button
             onClick={() => setRoleSelected("patient")}
-            className="rounded-xl px-10 py-16 bg-teal-850 flex flex-col gap-4 justify-center items-center font-bold text-gray-400"
+            className="rounded-xl px-10 py-16 bg-teal-850 flex flex-col gap-4 justify-center items-center font-bold text-gray-400 transition duration-300 hover:bg-teal-750"
           >
             <span className="bg-purple-600 rounded-full w-[150px] aspect-square flex flex-col justify-center items-center">
               <img width={100} src="/icons/person-icon.svg" alt="" />
@@ -211,7 +211,7 @@ const RoleSelection = ({
             </p>
           </button>
           <button
-            className="rounded-xl px-10 py-16 bg-teal-850 flex flex-col gap-4 justify-center items-center font-bold text-gray-400"
+            className="rounded-xl px-10 py-16 bg-teal-850 flex flex-col gap-4 justify-center items-center font-bold text-gray-400 transition duration-300 hover:bg-teal-750"
             onClick={() => setRoleSelected("caregiver")}
           >
             <span className="bg-purple-600 rounded-full w-[150px] aspect-square flex flex-col justify-center items-center">
@@ -223,8 +223,7 @@ const RoleSelection = ({
           </button>
         </div>
         <p className="text-sm text-gray-500 font-inter">
-          Next week's winning Lotto numbers: 1, 12, 14, 29, 31, 35, with a
-          Powerball of 2.
+          In a production setting, we would put the Terms and Conditions & Privacy Policy here.
         </p>
       </div>
     </div>

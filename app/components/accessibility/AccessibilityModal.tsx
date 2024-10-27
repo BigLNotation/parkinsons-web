@@ -13,14 +13,16 @@ function AccessibilityModal() {
     // It doesn't really work either lol.
 
     function enableContrast(){
-        const buttons = document.querySelectorAll("button");
-        const text = document.querySelectorAll("p");
+        if(confirm("Accessibility settings are highly experimental, and due to technical challenges do not yet work on all devices. If it seems to be broken, just reset the page.")){
+            const buttons = document.querySelectorAll("button");
+            const text = document.querySelectorAll("p");
 
-        for(const i of buttons){
-            i.classList.add("text-white", "bg-black")
-        }
-        for(const i of text){
-            i.classList.add("text-black")
+            for(const i of buttons){
+                i.classList.add("text-white", "bg-black")
+            }
+            for(const i of text){
+                i.classList.add("text-black")
+            }
         }
     }
 

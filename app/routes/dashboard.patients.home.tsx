@@ -39,10 +39,14 @@ export default function DashboardPatientsHome({
           </div>
           <div className="flex-1">
             <DashboardModule variant="normal" isFullSize>
-              <div className="flex gap-6">
+              <div className="flex gap-6 overflow-scroll whitespace-nowrap">
                 <h3 className="font-bold text-gray-200 text-xl">
                   Latest updates
                 </h3>
+                <div>
+                  <script
+                      src="//rss.bloople.net/?url=https%3A%2F%2Fparkinsonsnewstoday.com%2Ffeed%2F&detail=10&limit=5&showtitle=false&type=js"></script>
+                </div>
                 <Button variant="text" as="a" href="./progress">
                   View more
                 </Button>
