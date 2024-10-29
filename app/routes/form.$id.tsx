@@ -87,11 +87,12 @@ type FormAnswers = (
 export const loader: LoaderFunction = async ({ params, request }) => {
   // Fetch and return the layout and structure of the form
 
-  const cookieHeader = request.headers.get("Cookie");
+  const cookieHeader = request.headers.get("cookie");
 
   const res = await axios({
     url: `${process.env.VITE_API_URL}/form/find/${params.id}`,
     withCredentials: true,
+    method: "GET",
     headers: {
       Cookie: cookieHeader,
     },
